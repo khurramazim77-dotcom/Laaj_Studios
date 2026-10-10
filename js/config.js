@@ -25,7 +25,7 @@ window.LAAJ = {
 
   // Optional links. Leave empty to hide.
   filmUrl: "",        // e.g. a YouTube or Vimeo link to the Nina & Junaid film
-  instagram: "",      // e.g. "https://instagram.com/laajstudios"
+  instagram: "https://www.instagram.com/laajstudios/",
 
   // Client words. Add real quotes only; the section stays hidden while this list is empty.
   // Example: { quote: "…", names: "Ayesha & Bilal", event: "Baraat · The Pierre, NYC" }
