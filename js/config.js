@@ -27,7 +27,26 @@ window.LAAJ = {
   filmUrl: "",        // e.g. a YouTube or Vimeo link to the Nina & Junaid film
   instagram: "https://www.instagram.com/laajstudios/",
 
-  // Client words. Add real quotes only; the section stays hidden while this list is empty.
-  // Example: { quote: "…", names: "Ayesha & Bilal", event: "Baraat · The Pierre, NYC" }
-  testimonials: []
+  // Client words. The three entries below are PLACEHOLDERS for layout only: they show a "Placeholder" tag on the site.
+  // Replace each with a real couple's words (with their permission) and delete the `placeholder: true` line.
+  testimonials: [
+    {
+      placeholder: true,
+      quote: "From the mehndi to the rukhsati, they were everywhere we needed them and nowhere we didn't. Our parents still watch the film every Eid.",
+      names: "Couple names",
+      event: "Mehndi, Nikkah & Walima · Venue, City"
+    },
+    {
+      placeholder: true,
+      quote: "They understood our traditions without us having to explain a thing. Every photo feels like us, only more beautiful.",
+      names: "Couple names",
+      event: "Baraat · Venue, City"
+    },
+    {
+      placeholder: true,
+      quote: "The album arrived and my mother cried on the first page. Worth every penny, and then some.",
+      names: "Couple names",
+      event: "Nikkah & Reception · Venue, City"
+    }
+  ]
 };
