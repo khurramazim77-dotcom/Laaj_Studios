@@ -34,7 +34,7 @@
     var list = $(".words__list", words);
     C.testimonials.forEach(function (t) {
       var q = document.createElement("blockquote");
-      var p = document.createElement("p"); p.textContent = "“" + t.quote + "”";
+      var p = document.createElement("p"); p.textContent = t.quote;
       var c = document.createElement("cite");
       var n = document.createElement("strong"); n.textContent = t.names;
       c.appendChild(n); if (t.event) c.appendChild(document.createTextNode(t.event));
