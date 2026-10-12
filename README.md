@@ -6,13 +6,11 @@ A static, single-page wedding photography and film site built as an enquiry funn
 
 1. **Contact details**: edit `js/config.js` (email, phone, WhatsApp number, service area, booking note). Every link on the site updates from there.
 2. **Enquiry delivery**: create a free form at [formspree.io](https://formspree.io), then paste its endpoint into `formEndpoint` in `js/config.js`. Until then, submitting the form opens the visitor's email app with the enquiry written out.
-3. **Prices and inclusions**: edit the three collections in `index.html` (search for `COLLECTIONS`).
-4. **Optional**: add the film link (`filmUrl`), Instagram, and real client testimonials in `js/config.js`. The testimonials section stays hidden until you add at least one.
+3. **Optional**: add the film link (`filmUrl`), Instagram, and real client testimonials in `js/config.js`. The testimonials section stays hidden until you add at least one.
 
 ## How the funnel works
 
 - Every section ends in a call to action that leads to the 3-step enquiry form (`#enquire`).
-- The collection "Enquire" buttons pre-select that collection in the form.
 - After submitting, the visitor is offered a WhatsApp chat pre-filled with their enquiry summary.
 - Mobile visitors get a fixed bar with Call · Text · WhatsApp · Enquire. Desktop visitors get a floating WhatsApp button.
 - UTM tags, `gclid` and `fbclid` from ad links are sent with each enquiry, so you can see which campaigns bring bookings. If Google Analytics (`gtag`) or the Meta Pixel (`fbq`) is installed, a `Lead` event fires on submit.

@@ -62,13 +62,6 @@
     lb.addEventListener("click", function () { lb.close(); });
   }
 
-  /* ---------- Package buttons prefill the form ---------- */
-  $$("[data-package]").forEach(function (a) {
-    a.addEventListener("click", function () {
-      var sel = $("#f-package"); if (sel) sel.value = a.getAttribute("data-package");
-    });
-  });
-
   /* ---------- Multi-step enquiry ---------- */
   var form = $("#enquiry-form");
   if (!form) return;
@@ -140,7 +133,6 @@
       "Venue/city: " + (fd.get("venue") || "-"),
       "Guests: " + (fd.get("guests") || "-"),
       "Coverage: " + (fd.get("coverage") || "-"),
-      "Collection: " + (fd.get("package") || "Not sure yet"),
       "Budget: " + (fd.get("budget") || "-"),
       "Email: " + fd.get("email"),
       "Phone: " + fd.get("phone") + " (prefers " + fd.get("contact_pref") + ")",
