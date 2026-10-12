@@ -48,18 +48,28 @@
     words.hidden = false;
   }
 
-  /* ---------- Lightbox ---------- */
+  /* ---------- Lightbox with previous / next ---------- */
   var lb = $("#lightbox");
   if (lb && typeof lb.showModal === "function") {
     var lbImg = $("img", lb);
-    $$(".gallery__item").forEach(function (b) {
-      b.addEventListener("click", function () {
-        var img = $("img", b);
-        lbImg.src = b.getAttribute("data-full"); lbImg.alt = img.alt;
-        lb.showModal();
-      });
+    var items = $$(".gallery__item");
+    var at = 0;
+    var show = function (i) {
+      at = (i + items.length) % items.length;
+      var img = $("img", items[at]);
+      lbImg.src = items[at].getAttribute("data-full"); lbImg.alt = img.alt;
+    };
+    items.forEach(function (b, i) {
+      b.addEventListener("click", function () { show(i); lb.showModal(); });
     });
+    $(".lightbox__nav--prev", lb).addEventListener("click", function (e) { e.stopPropagation(); show(at - 1); });
+    $(".lightbox__nav--next", lb).addEventListener("click", function (e) { e.stopPropagation(); show(at + 1); });
+    lbImg.addEventListener("click", function (e) { e.stopPropagation(); show(at + 1); });
     lb.addEventListener("click", function () { lb.close(); });
+    lb.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowLeft") show(at - 1);
+      if (e.key === "ArrowRight") show(at + 1);
+    });
   }
 
   /* ---------- Multi-step enquiry ---------- */
