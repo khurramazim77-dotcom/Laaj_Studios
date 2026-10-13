@@ -4,7 +4,7 @@ A static, single-page wedding photography and film site built as an enquiry funn
 
 ## Before going live
 
-1. **Contact details**: edit `js/config.js` (email, phone, WhatsApp number, service area, booking note). Every link on the site updates from there.
+1. **Contact details**: set in `js/config.js` (photo@laajstudios.co, +1 914 620 7296 for calls, texts and WhatsApp, laajstudios.co). Every link on the site updates from there.
 2. **Enquiry delivery**: create a free form at [formspree.io](https://formspree.io), then paste its endpoint into `formEndpoint` in `js/config.js`. Until then, submitting the form opens the visitor's email app with the enquiry written out.
 3. **Optional**: add the film link (`filmUrl`), Instagram, and real client testimonials in `js/config.js`. The testimonials section stays hidden until you add at least one.
 

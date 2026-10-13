@@ -5,14 +5,14 @@
 */
 window.LAAJ = {
   // Shown on the site and used for the email fallback.
-  email: "hello@laajstudios.com",
+  email: "photo@laajstudios.co",
 
   // How the phone number is displayed, and the same number in international format for links.
-  phoneDisplay: "+1 (000) 000-0000",
-  phoneE164: "+10000000000",
+  phoneDisplay: "+1 (914) 620-7296",
+  phoneE164: "+19146207296",
 
   // WhatsApp number: country code + number, digits only (no +, spaces or dashes).
-  whatsapp: "10000000000",
+  whatsapp: "19146207296",
 
   // Enquiry form delivery. Create a free form at https://formspree.io and paste its endpoint,
   // e.g. "https://formspree.io/f/abcdwxyz". Leave empty to fall back to opening the visitor's email app.
@@ -26,6 +26,7 @@ window.LAAJ = {
   // Optional links. Leave empty to hide.
   filmUrl: "",        // e.g. a YouTube or Vimeo link to the Nina & Junaid film
   instagram: "https://www.instagram.com/laajstudios/",
+  website: "laajstudios.co",
 
   // Client words. The three entries below are PLACEHOLDERS for layout only: they show a "Placeholder" tag on the site.
   // Replace each with a real couple's words (with their permission) and delete the `placeholder: true` line.
