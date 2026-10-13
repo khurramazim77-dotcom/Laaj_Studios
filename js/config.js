@@ -1,7 +1,6 @@
 /*
   LAAJ STUDIOS — SITE SETTINGS
   Edit the values below; every phone, email and WhatsApp link on the site updates from here.
-  Package prices live in index.html (search for "COLLECTIONS").
 */
 window.LAAJ = {
   // Shown on the site and used for the email fallback.
