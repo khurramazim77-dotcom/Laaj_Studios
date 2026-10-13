@@ -202,20 +202,6 @@ p { margin: 0; }
 .steps h3 { font-size: var(--step-1); }
 .steps p { color: var(--ink-soft); font-size: .98rem; }
 
-/* Testimonials */
-.words { padding: clamp(4rem, 9vw, 7rem) var(--gutter); background: var(--pearl); }
-.words__list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(1rem, 2vw, 1.6rem); max-width: var(--max); margin: 0 auto; }
-.words blockquote {
-  margin: 0; position: relative; display: flex; flex-direction: column; gap: 1.4rem;
-  padding: clamp(2.6rem, 4vw, 3.4rem) clamp(1.6rem, 3vw, 2.4rem) clamp(1.8rem, 3vw, 2.4rem);
-  background: var(--sand); border-top: 1px solid var(--gold-deep);
-}
-.words blockquote::before { content: "\201C"; position: absolute; top: .4rem; left: clamp(1.2rem, 2.6vw, 2rem); font: italic 400 4.5rem/1 var(--f-display); color: var(--accent); }
-.words blockquote p { font: italic 400 var(--step-1)/1.5 var(--f-display); margin-bottom: auto; }
-.words cite { font-style: normal; font-size: var(--step--1); letter-spacing: .16em; text-transform: uppercase; color: var(--gold-deep); line-height: 1.6; }
-.words cite strong { display: block; font: 400 1.05rem/1.3 var(--f-display); letter-spacing: 0; text-transform: none; color: var(--ink); }
-.words__tag { position: absolute; top: 1rem; right: 1rem; font-size: .62rem; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); border: 1px dashed var(--accent); padding: .25rem .5rem; }
-
 /* FAQ */
 .faq { padding: clamp(4rem, 9vw, 7rem) var(--gutter); max-width: 980px; margin: 0 auto; }
 .faq__list { border-top: 1px solid color-mix(in srgb, var(--gold-deep) 35%, transparent); }
@@ -320,7 +306,6 @@ p { margin: 0; }
   .film, .enquire { grid-template-columns: 1fr; }
   .portfolio { grid-template-columns: 1fr; }
   .portfolio__head { position: static; }
-  .words__list { grid-template-columns: 1fr; max-width: 560px; }
   .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 640px) {

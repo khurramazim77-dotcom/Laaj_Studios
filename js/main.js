@@ -28,26 +28,6 @@
   });
   var y = $("#year"); if (y) y.textContent = new Date().getFullYear();
 
-  /* ---------- Testimonials ---------- */
-  var words = $("#words");
-  if (words && C.testimonials && C.testimonials.length) {
-    var list = $(".words__list", words);
-    C.testimonials.forEach(function (t) {
-      var q = document.createElement("blockquote");
-      var p = document.createElement("p"); p.textContent = t.quote;
-      var c = document.createElement("cite");
-      var n = document.createElement("strong"); n.textContent = t.names;
-      c.appendChild(n); if (t.event) c.appendChild(document.createTextNode(t.event));
-      if (t.placeholder) {
-        var tag = document.createElement("span");
-        tag.className = "words__tag"; tag.textContent = "Placeholder";
-        q.appendChild(tag);
-      }
-      q.appendChild(p); q.appendChild(c); list.appendChild(q);
-    });
-    words.hidden = false;
-  }
-
   /* ---------- Lightbox with previous / next ---------- */
   var lb = $("#lightbox");
   if (lb && typeof lb.showModal === "function") {
