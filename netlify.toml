@@ -22,7 +22,7 @@
   status = 404
   force = true
 
-# Cache images, styles and scripts for a week; the page itself always revalidates
+# Cache images for a week and styles/scripts for an hour, so edits show up quickly
 [[headers]]
   for = "/images/*"
   [headers.values]
@@ -30,8 +30,8 @@
 [[headers]]
   for = "/css/*"
   [headers.values]
-    Cache-Control = "public, max-age=604800"
+    Cache-Control = "public, max-age=3600"
 [[headers]]
   for = "/js/*"
   [headers.values]
-    Cache-Control = "public, max-age=604800"
+    Cache-Control = "public, max-age=3600"
