@@ -1,0 +1,37 @@
+# Netlify: static site, no build step. The site root is the repository root.
+[build]
+  publish = "."
+  command = ""
+
+# Send www.laajstudios.co to laajstudios.co
+[[redirects]]
+  from = "https://www.laajstudios.co/*"
+  to = "https://laajstudios.co/:splat"
+  status = 301
+  force = true
+
+# Keep the brand source files and docs out of the public site
+[[redirects]]
+  from = "/brand/*"
+  to = "/"
+  status = 404
+  force = true
+[[redirects]]
+  from = "/README.md"
+  to = "/"
+  status = 404
+  force = true
+
+# Cache images, styles and scripts for a week; the page itself always revalidates
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
