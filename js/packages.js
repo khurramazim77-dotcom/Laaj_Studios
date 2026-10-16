@@ -2,9 +2,10 @@
   LAAJ STUDIOS — PACKAGE BUILDER MENU
   Every option and price clients see on the "Build your package" page lives here.
   Edit names, descriptions and prices freely; the page and the running total update automatically.
+  Clients never see individual prices: only the estimated total. Your email gets the line-by-line breakdown.
 
   STARTER PRICES: the numbers below are a first draft. Replace them with your own before going live.
-  All prices are in US dollars. Set a price to 0 to show an option as "Included".
+  All prices are in US dollars. Set a price to 0 for an option that adds nothing to the total.
 */
 window.LAAJ_PACKAGES = {
   currency: "USD",

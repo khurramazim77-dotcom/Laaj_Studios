@@ -52,8 +52,7 @@
 .b-event__num { font: italic 500 1.15rem/1 var(--f-display); color: var(--accent); }
 .b-event__remove { background: none; border: 0; padding: .3rem 0; font: 500 .72rem/1 var(--f-body); letter-spacing: .16em; text-transform: uppercase; color: var(--ink-soft); cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
 .b-event__remove:hover { color: var(--accent); }
-.b-event__price { font-size: .95rem; font-weight: 500; color: var(--ink); text-align: right; font-variant-numeric: tabular-nums; }
-.b-event__price.is-empty { color: var(--accent); font-weight: 400; }
+.b-event__price { font-size: .9rem; color: var(--accent); }
 .b-add { justify-self: start; }
 
 /* summary */
@@ -65,7 +64,6 @@
 .b-line > div { display: grid; gap: .15rem; min-width: 0; }
 .b-line__label { font-weight: 500; font-size: .95rem; }
 .b-line__detail { font-size: .82rem; color: var(--cream-soft); }
-.b-line__price { font-size: .92rem; white-space: nowrap; font-variant-numeric: tabular-nums; }
 .b-total { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; padding-top: .3rem; }
 .b-total span { font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); }
 .b-total strong { font: 500 clamp(1.8rem, 1.4rem + 1vw, 2.3rem)/1 var(--f-display); font-variant-numeric: lining-nums tabular-nums; }
@@ -140,3 +138,6 @@ body.is-done .b-hero, body.is-done .b-grid, body.is-done .b-bar { display: none 
   .b-copy { border: 0; padding: 0; }
   .b-copy__table tr { break-inside: avoid; }
 }
+
+/* client copy lists selections only; the total sits alone in the footer */
+.b-copy__table thead th[colspan], .b-copy__table td[colspan] { text-align: left; padding-left: 0; white-space: normal; }

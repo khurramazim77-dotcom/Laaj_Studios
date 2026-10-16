@@ -89,10 +89,10 @@
 
       var row2 = el("div", { "class": "b-row" });
       row2.appendChild(select("ev-photo-" + ev.id, "Photography", P.events.photo.map(function (o) {
-        return { value: o.id, text: o.perHour ? o.label + " · " + money(o.perHour) + "/hr" : o.label };
+        return { value: o.id, text: o.label };
       }), ev.photo, function (v) { ev.photo = v; update(); }));
       row2.appendChild(select("ev-film-" + ev.id, "Film", P.events.film.map(function (o) {
-        return { value: o.id, text: o.perHour ? o.label + " · " + money(o.perHour) + "/hr" : o.label };
+        return { value: o.id, text: o.label };
       }), ev.film, function (v) { ev.film = v; update(); }));
       card.appendChild(row2);
 
@@ -130,7 +130,7 @@
     sec.items.forEach(function (item) {
       var idx = state.choices[item.id] || 0;
       grid.appendChild(select("opt-" + item.id, item.label, item.options.map(function (o, i) {
-        var tag = o.price ? " · " + money(o.price) : (i > 0 ? " · " + (o.note || "Included") : "");
+        var tag = i > 0 && o.note ? " · " + o.note : "";
         return { value: i, text: o.label + tag };
       }), idx, function (v) { state.choices[item.id] = Number(v); update(); }));
     });
@@ -176,8 +176,8 @@
       var ev = state.events.filter(function (x) { return String(x.id) === p.getAttribute("data-event-price"); })[0];
       if (!ev) return;
       var price = eventPrice(ev);
-      p.textContent = price ? money(price) + " for this event" : "Choose photography or film for this event";
-      p.classList.toggle("is-empty", !price);
+      p.textContent = "Choose photography or film for this event";
+      p.hidden = price > 0;
     });
     P.sections.forEach(function (sec) {
       if (!sec.requires) return;
@@ -195,7 +195,6 @@
       txt.appendChild(el("span", { "class": "b-line__label" }, l.label));
       txt.appendChild(el("span", { "class": "b-line__detail" }, l.detail));
       li.appendChild(txt);
-      li.appendChild(el("span", { "class": "b-line__price" }, l.price ? money(l.price) : (l.priceNote || "—")));
       summaryLines.appendChild(li);
     });
     $("#summary-total").textContent = money(t);
@@ -233,12 +232,13 @@
     return "LS-" + String(d.getFullYear()).slice(2) + pad(d.getMonth() + 1) + pad(d.getDate()) + "-" + r;
   };
 
-  var asText = function (ref, fd, ls, t) {
+  // withPrices: true for the studio's email (line-by-line breakdown), false for the client's own copy.
+  var asText = function (ref, fd, ls, t, withPrices) {
     var out = ["Laaj Studios package " + ref, ""];
     var group = "";
     ls.forEach(function (l) {
       if (l.group !== group) { group = l.group; out.push(group.toUpperCase()); }
-      out.push("- " + l.label + ": " + l.detail + " — " + (l.price ? money(l.price) : (l.priceNote || "")));
+      out.push("- " + l.label + ": " + l.detail + (withPrices ? " — " + (l.price ? money(l.price) : (l.priceNote || "")) : ""));
     });
     out.push("", "Estimated investment: " + money(t), "", "Client: " + fd.get("name") + (fd.get("partner") ? " & " + fd.get("partner") : ""));
     out.push("Email: " + fd.get("email"), "Phone: " + fd.get("phone") + " (prefers " + fd.get("contact_pref") + ")");
@@ -264,9 +264,8 @@
     ls.forEach(function (l) {
       if (l.group !== group) { group = l.group; var gr = el("tr", { "class": "b-copy__group" }); gr.appendChild(el("th", { colspan: "2", scope: "colgroup" }, group)); tb.appendChild(gr); }
       var tr = el("tr");
-      var td = el("td"); td.appendChild(el("strong", null, l.label)); td.appendChild(el("span", null, l.detail));
+      var td = el("td", { colspan: "2" }); td.appendChild(el("strong", null, l.label)); td.appendChild(el("span", null, l.detail));
       tr.appendChild(td);
-      tr.appendChild(el("td", null, l.price ? money(l.price) : (l.priceNote || "—")));
       tb.appendChild(tr);
     });
     $("#copy-total").textContent = money(t);
@@ -278,7 +277,7 @@
     if (C.whatsapp) wa.href = "https://wa.me/" + C.whatsapp + "?text=" + encodeURIComponent("Hello Laaj Studios! I just built my package on your website. Reference " + ref + ", estimate " + money(t) + ".");
     else wa.hidden = true;
     $("#copy-summary").onclick = function () {
-      var text = asText(ref, fd, ls, t), b = this;
+      var text = asText(ref, fd, ls, t, false), b = this;
       var done = function () { b.textContent = "Copied"; setTimeout(function () { b.textContent = "Copy summary"; }, 2000); };
       if (navigator.clipboard) navigator.clipboard.writeText(text).then(done, function () { window.prompt("Copy your summary:", text); });
     };
@@ -317,7 +316,7 @@
     var fd = new FormData(form);
     if (fd.get("_gotcha")) return;
     var ls = lines(), t = total(ls), ref = reference();
-    var summary = asText(ref, fd, ls, t);
+    var summary = asText(ref, fd, ls, t, true);
     fd.append("_subject", "Package " + ref + " · " + fd.get("name") + " · " + money(t));
     fd.append("reference", ref);
     fd.append("estimated_total", money(t));

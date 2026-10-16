@@ -25,10 +25,10 @@ A static, single-page wedding photography and film site built as an enquiry funn
 
 ## Package builder (`build.html`, at laajstudios.co/build)
 
-Couples design their own package from dropdown menus and see a running estimate. When they finalize:
+Couples design their own package from dropdown menus and see a running estimated total (individual prices are never shown to them). When they finalize:
 
-1. The full itemised package, their details and a reference number (e.g. `LS-270918-K7QM`) are sent to your inbox through the same Formspree form as the enquiry form. The email subject reads `Package <reference> · <name> · <estimate>`.
-2. The couple gets a clean copy on screen that they can print, save as PDF, copy, or send to you on WhatsApp.
+1. The full itemised package with the price of each line, their details and a reference number (e.g. `LS-270918-K7QM`) are sent to your inbox through the same Formspree form as the enquiry form. The email subject reads `Package <reference> · <name> · <estimate>`.
+2. The couple gets a clean copy on screen listing their selections and the total only, that they can print, save as PDF, copy, or send to you on WhatsApp.
 
 Nothing is charged online; everything after that is handled offsite.
 
