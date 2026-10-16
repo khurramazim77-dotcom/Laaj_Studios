@@ -18,12 +18,11 @@ window.LAAJ = {
   formEndpoint: "https://formspree.io/f/xnpjopwb",
 
   // Small details shown around the site.
-  serviceArea: "New York · Tri-State · Destination worldwide",
   bookingNote: "Now reserving 2027 & 2028 celebrations",
   replyPromise: "We reply to every enquiry within 24 hours.",
 
   // Optional links. Leave empty to hide.
-  filmUrl: "",        // e.g. a YouTube or Vimeo link to the Nina & Junaid film
+  filmUrl: "",        // e.g. a YouTube or Vimeo link to a featured film
   instagram: "https://www.instagram.com/laajstudios/",
   website: "laajstudios.co"
 };
