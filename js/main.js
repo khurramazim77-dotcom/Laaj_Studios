@@ -17,7 +17,7 @@
     mailto: C.email && "mailto:" + C.email,
     tel: C.phoneE164 && "tel:" + C.phoneE164,
     sms: C.phoneE164 && "sms:" + C.phoneE164,
-    whatsapp: C.whatsapp && waLink("Assalam o Alaikum Laaj Studios! I'd like to check availability for our wedding."),
+    whatsapp: C.whatsapp && waLink("Hello Laaj Studios! I'd like to check availability for our wedding."),
     filmUrl: C.filmUrl,
     instagram: C.instagram
   };
@@ -140,7 +140,7 @@
       $(".form__done-text", done).textContent = "Your email app should have opened with your enquiry written out. If it didn't, message us on WhatsApp or email " + (C.email || "us") + ".";
     }
     var wa = $("[data-whatsapp-summary]", done);
-    if (C.whatsapp) wa.href = waLink("Assalam o Alaikum! I just sent an enquiry on your website.\n\n" + summary(fd));
+    if (C.whatsapp) wa.href = waLink("Hello! I just sent an enquiry on your website.\n\n" + summary(fd));
     else wa.hidden = true;
     done.hidden = false;
     done.focus();
