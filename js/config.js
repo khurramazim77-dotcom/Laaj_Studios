@@ -15,7 +15,7 @@ window.LAAJ = {
 
   // Enquiry form delivery. Create a free form at https://formspree.io and paste its endpoint,
   // e.g. "https://formspree.io/f/abcdwxyz". Leave empty to fall back to opening the visitor's email app.
-  formEndpoint: "",
+  formEndpoint: "https://formspree.io/f/xnpjopwb",
 
   // Small details shown around the site.
   serviceArea: "New York · Tri-State · Destination worldwide",
