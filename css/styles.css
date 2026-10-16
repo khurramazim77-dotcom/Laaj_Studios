@@ -220,6 +220,8 @@ p { margin: 0; }
 .enquire h2 { font-size: var(--step-3); }
 .enquire h2 em { color: var(--gold); }
 .enquire__intro > p { color: var(--cream-soft); }
+.enquire__alt a { color: var(--gold); text-underline-offset: 4px; }
+.enquire__alt a:hover { color: var(--cream); }
 .contact-list { list-style: none; padding: 0; margin: .6rem 0 0; display: grid; border-top: 1px solid color-mix(in srgb, var(--gold) 30%, transparent); }
 .contact-list li { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; padding: .9rem 0; border-bottom: 1px solid color-mix(in srgb, var(--gold) 30%, transparent); }
 .contact-list span { font-size: var(--step--1); letter-spacing: .2em; text-transform: uppercase; color: var(--cream-soft); }

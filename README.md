@@ -22,3 +22,14 @@ A static, single-page wedding photography and film site built as an enquiry funn
 - `js/config.js`: your settings
 - `js/main.js`: gallery lightbox, multi-step form, link wiring
 - `images/`: web-optimised portfolio photos and logo variants (from the Laaj Google Drive portfolio folders)
+
+## Package builder (`build.html`, at laajstudios.co/build)
+
+Couples design their own package from dropdown menus and see a running estimate. When they finalize:
+
+1. The full itemised package, their details and a reference number (e.g. `LS-270918-K7QM`) are sent to your inbox through the same Formspree form as the enquiry form. The email subject reads `Package <reference> · <name> · <estimate>`.
+2. The couple gets a clean copy on screen that they can print, save as PDF, copy, or send to you on WhatsApp.
+
+Nothing is charged online; everything after that is handled offsite.
+
+**Editing the menu and prices:** everything clients can choose lives in `js/packages.js`: event types, hours, per-hour photography and film rates, and every film, album and extra with its price. Change the text or numbers there and the page, totals and emails update automatically. The prices in that file are a starter draft; replace them with your own before launch.

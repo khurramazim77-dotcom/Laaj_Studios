@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Build Your Package · Laaj Studios</title>
+<meta name="description" content="Design your own wedding photography and film package with Laaj Studios. Choose your events, coverage, films and albums and see your estimate update as you go.">
+<meta property="og:title" content="Build your package · Laaj Studios">
+<meta property="og:description" content="Choose your events, coverage, films and albums, and see your estimate as you go.">
+<meta property="og:image" content="https://laajstudios.co/images/bride-staircase.jpg">
+<meta property="og:url" content="https://laajstudios.co/build">
+<link rel="canonical" href="https://laajstudios.co/build">
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/builder.css">
+</head>
+<body class="page-builder">
+
+<a class="skip" href="#builder">Skip to the package builder</a>
+
+<div class="ribbon"><span data-cfg="bookingNote">Now reserving 2027 &amp; 2028 celebrations</span><a href="index.html#enquire">Check your date</a></div>
+
+<header class="nav" id="top">
+  <a class="nav__brand" href="index.html" aria-label="Laaj Studios home">
+    <img src="images/logo-horizontal.svg" alt="Laaj Studios" width="190" height="64">
+  </a>
+  <nav class="nav__links" aria-label="Primary">
+    <a href="index.html#work">Work</a>
+    <a href="index.html#film">Film</a>
+    <a href="index.html#process">Process</a>
+    <a href="build.html" aria-current="page">Build your package</a>
+  </nav>
+  <a class="btn btn--dark nav__cta" href="#details">Finalize package</a>
+</header>
+
+<main id="builder">
+
+  <section class="b-hero">
+    <p class="eyebrow">Build your package</p>
+    <h1>Design your <em>coverage</em></h1>
+    <p class="b-hero__lede">Choose your events, coverage and keepsakes. Your estimate updates as you go. When it looks right, send it to us and keep a copy for yourself.</p>
+    <ol class="b-steps" aria-label="Steps">
+      <li><a href="#b-events">Events</a></li>
+      <li><a href="#b-films">Films</a></li>
+      <li><a href="#b-photos">Photographs</a></li>
+      <li><a href="#b-extras">Extras</a></li>
+      <li><a href="#details">Your details</a></li>
+    </ol>
+  </section>
+
+  <div class="b-grid">
+    <div class="b-main">
+
+      <section class="b-section" id="b-events" aria-labelledby="b-events-title">
+        <div class="b-section__head">
+          <h2 id="b-events-title">Your events</h2>
+          <p>Add each event you would like us at, then choose how long and who covers it.</p>
+        </div>
+        <div class="b-events" id="event-list"></div>
+        <button type="button" class="btn btn--line-dark b-add" id="add-event">Add another event</button>
+      </section>
+
+      <div id="b-sections"></div>
+    </div>
+
+    <aside class="b-summary" id="summary" aria-labelledby="summary-title">
+      <div class="b-summary__card">
+        <h2 id="summary-title">Your package</h2>
+        <ul class="b-lines" id="summary-lines" aria-live="polite"></ul>
+        <div class="b-total">
+          <span>Estimated investment</span>
+          <strong id="summary-total">$0</strong>
+        </div>
+        <p class="b-note" id="summary-note"></p>
+        <a class="btn btn--gold b-summary__cta" href="#details">Finalize package</a>
+        <button type="button" class="b-reset" id="reset-package">Start over</button>
+      </div>
+    </aside>
+
+    <section class="b-section b-details" id="details" aria-labelledby="details-title">
+      <div class="b-section__head">
+        <h2 id="details-title">Your details</h2>
+        <p>We'll check your date and reply within 24 hours with a proposal based on this package.</p>
+      </div>
+      <form class="b-form" id="package-form" novalidate>
+        <div class="b-row">
+          <div class="b-field">
+            <label for="p-name">Your name</label>
+            <input id="p-name" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="b-field">
+            <label for="p-partner">Partner's name</label>
+            <input id="p-partner" name="partner" type="text">
+          </div>
+        </div>
+        <div class="b-row">
+          <div class="b-field">
+            <label for="p-email">Email</label>
+            <input id="p-email" name="email" type="email" autocomplete="email" required>
+          </div>
+          <div class="b-field">
+            <label for="p-phone">Phone</label>
+            <input id="p-phone" name="phone" type="tel" autocomplete="tel" required>
+          </div>
+        </div>
+        <div class="b-row">
+          <div class="b-field">
+            <label for="p-date">Wedding date</label>
+            <input id="p-date" name="wedding_date" type="date">
+            <label class="b-check"><input id="p-date-flex" type="checkbox" name="date_flexible" value="yes"> Date not set yet</label>
+          </div>
+          <div class="b-field">
+            <label for="p-venue">Venue or city</label>
+            <input id="p-venue" name="venue" type="text" placeholder="Venue name or city">
+          </div>
+        </div>
+        <div class="b-row">
+          <div class="b-field">
+            <label for="p-contact">Best way to reach you</label>
+            <select id="p-contact" name="contact_pref">
+              <option>WhatsApp</option>
+              <option>Text</option>
+              <option>Call</option>
+              <option>Email</option>
+            </select>
+          </div>
+          <div class="b-field">
+            <label for="p-guests">Guest count</label>
+            <select id="p-guests" name="guests">
+              <option value="">Select</option>
+              <option>Under 150</option>
+              <option>150–300</option>
+              <option>300–500</option>
+              <option>500+</option>
+            </select>
+          </div>
+        </div>
+        <div class="b-field">
+          <label for="p-notes">Anything else we should know?</label>
+          <textarea id="p-notes" name="notes" rows="3" placeholder="Moments you care about, family traditions, timings…"></textarea>
+        </div>
+        <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <p class="b-error" id="package-error" role="alert" hidden></p>
+        <button type="submit" class="btn btn--dark b-submit">Finalize my package</button>
+        <p class="b-fine">Nothing is charged online. We'll follow up personally to confirm details and your date.</p>
+      </form>
+    </section>
+  </div>
+
+  <!-- Shown after the package is sent: the client's copy -->
+  <section class="b-done" id="done" hidden tabindex="-1" aria-labelledby="done-title">
+    <div class="b-done__actions">
+      <p class="b-done__status" id="done-status"></p>
+      <div class="b-done__buttons">
+        <button type="button" class="btn btn--dark" id="print-copy">Print or save as PDF</button>
+        <button type="button" class="btn btn--line-dark" id="copy-summary">Copy summary</button>
+        <a class="btn btn--line-dark" id="done-whatsapp" href="#" target="_blank" rel="noopener">Message us on WhatsApp</a>
+        <button type="button" class="b-reset" id="edit-package">Make changes</button>
+      </div>
+    </div>
+
+    <article class="b-copy">
+      <header class="b-copy__head">
+        <img src="images/logo-horizontal.svg" alt="Laaj Studios" width="190" height="64">
+        <div>
+          <p class="b-copy__ref">Reference <strong id="copy-ref"></strong></p>
+          <p class="b-copy__date" id="copy-date"></p>
+        </div>
+      </header>
+      <h2 id="done-title">Your Laaj Studios package</h2>
+      <dl class="b-copy__client" id="copy-client"></dl>
+      <table class="b-copy__table">
+        <thead><tr><th scope="col">Item</th><th scope="col">Estimate</th></tr></thead>
+        <tbody id="copy-lines"></tbody>
+        <tfoot><tr><th scope="row">Estimated investment</th><td id="copy-total"></td></tr></tfoot>
+      </table>
+      <p class="b-copy__note" id="copy-note"></p>
+      <p class="b-copy__contact">photo@laajstudios.co · +1 (914) 620-7296 · laajstudios.co</p>
+    </article>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <img src="images/logo-stacked-dark.svg" alt="Laaj Studios" width="140" height="215" class="footer__logo" loading="lazy">
+  <p class="footer__links">
+    <a data-cfg="email" data-cfg-href="mailto" href="mailto:photo@laajstudios.co">photo@laajstudios.co</a>
+    <a data-cfg="phoneDisplay" data-cfg-href="tel" href="tel:+19146207296">+1 (914) 620-7296</a>
+    <a href="https://laajstudios.co">laajstudios.co</a>
+    <a data-cfg-href="instagram" href="https://www.instagram.com/laajstudios/" target="_blank" rel="noopener">Instagram</a>
+  </p>
+  <p class="footer__copy">© <span id="year">2026</span> Laaj Studios. All photographs © Laaj Studios.</p>
+</footer>
+
+<!-- Phone-sized running total -->
+<div class="b-bar" id="total-bar">
+  <span>Estimate <strong id="bar-total">$0</strong></span>
+  <a class="btn btn--gold" href="#summary">Review package</a>
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/main.js"></script>
+<script src="js/packages.js"></script>
+<script src="js/builder.js"></script>
+</body>
+</html>
