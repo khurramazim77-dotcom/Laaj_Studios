@@ -310,5 +310,149 @@
   "query": "boxing ring",
   "duration": 13,
   "size": "1280x720"
+ },
+ "arcade_0": {
+  "pixabay_id": 32021,
+  "page": "https://pixabay.com/videos/id-32021/",
+  "user": "PrettyPixels",
+  "query": "arcade neon lights",
+  "duration": 10,
+  "size": "1280x720"
+ },
+ "arcade_1": {
+  "pixabay_id": 81185,
+  "page": "https://pixabay.com/videos/id-81185/",
+  "user": "ChristianBodhi",
+  "query": "arcade neon lights",
+  "duration": 30,
+  "size": "2560x1440"
+ },
+ "arcade_2": {
+  "pixabay_id": 143419,
+  "page": "https://pixabay.com/videos/id-143419/",
+  "user": "NickyPe",
+  "query": "arcade neon lights",
+  "duration": 30,
+  "size": "2560x1440"
+ },
+ "gaming_0": {
+  "pixabay_id": 26619,
+  "page": "https://pixabay.com/videos/id-26619/",
+  "user": "ninosouza",
+  "query": "video game controller",
+  "duration": 24,
+  "size": "1280x720"
+ },
+ "gaming_1": {
+  "pixabay_id": 246909,
+  "page": "https://pixabay.com/videos/id-246909/",
+  "user": "Im_kamma",
+  "query": "video game controller",
+  "duration": 8,
+  "size": "2560x1440"
+ },
+ "gaming_2": {
+  "pixabay_id": 61755,
+  "page": "https://pixabay.com/videos/id-61755/",
+  "user": "HOCKULUS",
+  "query": "video game controller",
+  "duration": 26,
+  "size": "1280x720"
+ },
+ "keys_0": {
+  "pixabay_id": 47158,
+  "page": "https://pixabay.com/videos/id-47158/",
+  "user": "Engin_Akyurt",
+  "query": "house keys",
+  "duration": 23,
+  "size": "2560x1440"
+ },
+ "keys_1": {
+  "pixabay_id": 114254,
+  "page": "https://pixabay.com/videos/id-114254/",
+  "user": "Kmeel_com",
+  "query": "house keys",
+  "duration": 12,
+  "size": "2560x1440"
+ },
+ "keys_2": {
+  "pixabay_id": 3174,
+  "page": "https://pixabay.com/videos/id-3174/",
+  "user": "Coverr-Free-Footage",
+  "query": "house keys",
+  "duration": 12,
+  "size": "1280x720"
+ },
+ "banking_0": {
+  "pixabay_id": 2988,
+  "page": "https://pixabay.com/videos/id-2988/",
+  "user": "starroom",
+  "query": "mobile banking app",
+  "duration": 12,
+  "size": "1280x720"
+ },
+ "banking_1": {
+  "pixabay_id": 42408,
+  "page": "https://pixabay.com/videos/id-42408/",
+  "user": "SamuelFJohanns",
+  "query": "mobile banking app",
+  "duration": 23,
+  "size": "1280x720"
+ },
+ "banking_2": {
+  "pixabay_id": 202987,
+  "page": "https://pixabay.com/videos/id-202987/",
+  "user": "Natures_Embrace",
+  "query": "mobile banking app",
+  "duration": 15,
+  "size": "2560x1440"
+ },
+ "apt_0": {
+  "pixabay_id": 34330,
+  "page": "https://pixabay.com/videos/id-34330/",
+  "user": "FilipFilipovic",
+  "query": "apartment building",
+  "duration": 14,
+  "size": "1280x720"
+ },
+ "apt_1": {
+  "pixabay_id": 269527,
+  "page": "https://pixabay.com/videos/id-269527/",
+  "user": "isuruzampa",
+  "query": "apartment building",
+  "duration": 31,
+  "size": "1920x1080"
+ },
+ "apt_2": {
+  "pixabay_id": 7376,
+  "page": "https://pixabay.com/videos/id-7376/",
+  "user": "Luiz-Jorge-Artista",
+  "query": "apartment building",
+  "duration": 60,
+  "size": "1280x720"
+ },
+ "cardswipe_0": {
+  "pixabay_id": 3593,
+  "page": "https://pixabay.com/videos/id-3593/",
+  "user": "Life-Of-Vids",
+  "query": "credit card terminal payment",
+  "duration": 20,
+  "size": "1280x720"
+ },
+ "cardswipe_1": {
+  "pixabay_id": 23544,
+  "page": "https://pixabay.com/videos/id-23544/",
+  "user": "bellergy",
+  "query": "credit card terminal payment",
+  "duration": 32,
+  "size": "2560x1440"
+ },
+ "cardswipe_2": {
+  "pixabay_id": 23232,
+  "page": "https://pixabay.com/videos/id-23232/",
+  "user": "bellergy",
+  "query": "credit card terminal payment",
+  "duration": 26,
+  "size": "2560x1440"
  }
 }
