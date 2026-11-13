@@ -162,6 +162,7 @@ SPEC = [
         ('r4', "The avalanche saves more interest, the snowball delivers faster wins, and the best method is the one you finish.", None),
         ('r5', "Next time, we decode your credit score: the five factors that actually matter.", None),
         ('r6', "If this helped, subscribe, and tell me in the comments: snowball or avalanche?", None),
+        ('r6b', "And if you learned something from this video, don't forget to watch our next video.", None),
         ('r7', "This video is for education only and isn't financial advice. See you next time.", None)],
         els=[E('bullets', 'r1', until='r5', region=(220, 300, 1700, 860), size=44, items=[
                  dict(text='List your debts', icon='check', color=GOLD, at='r2'), dict(text='Minimums on all, extra to ONE target', icon='check', color=GREEN, at='r3'),

@@ -72,6 +72,7 @@ SCRIPT = [
         ('c3', "Thirty percent for wants.", "30% for wants."),
         ('c4', "Twenty percent for future you.", "20% for future you."),
         ('c5', "If this helped, subscribe to Broke to Balance, and tell me in the comments: which bucket is hardest for you?", None),
+        ('c5b', "And if you learned something from this video, don't forget to watch our next video.", None),
         ('c6', "This video is for education only, and isn't financial advice. See you next time.", None)]),
 ]
 
@@ -699,6 +700,7 @@ def s_outro(img, t, S):
         text(img, (960 + 24, yy), 'SUBSCRIBE', 52, 'Black', WHITE, 'mm', al)
         text(img, (960, yy + 130), 'Which bucket is hardest for you?  Tell me in the comments.', 38, 'SemiBold', LIGHT, 'mm', al * e_out(prog(t, a('c5') + 1.8, 0.6)))
         text(img, (960, yy + 200), 'Broke → Balance  •  your paycheck, simplified', 32, 'Bold', GREEN, 'mm', al * e_out(prog(t, a('c5') + 2.6, 0.6)))
+        pill(img, 960, yy + 290, 'DON\u2019T MISS THE NEXT VIDEO', 34, GREEN, NAVY, padx=40, h=68, alpha=al * e_out(prog(t, a('c5b') + 0.2, 0.6)))
     dp = e_out(prog(t, a('c6') + 0.1, 0.8))
     text(img, (960, 940), 'For educational purposes only. Not financial advice. Examples are illustrative.', 26, 'Medium', GREY, 'mm', dp)
 

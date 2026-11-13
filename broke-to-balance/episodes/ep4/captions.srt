@@ -771,14 +771,22 @@ and tell me in the comments:
 snowball or avalanche?
 
 194
-00:06:58,718 --> 00:07:01,233
-This video is for education only and
+00:06:58,718 --> 00:07:01,147
+And if you learned something from this video,
 
 195
-00:07:01,233 --> 00:07:02,839
-isn't financial advice.
+00:07:01,147 --> 00:07:03,143
+don't forget to watch our next video.
 
 196
-00:07:02,839 --> 00:07:04,097
+00:07:03,403 --> 00:07:05,918
+This video is for education only and
+
+197
+00:07:05,918 --> 00:07:07,525
+isn't financial advice.
+
+198
+00:07:07,525 --> 00:07:08,782
 See you next time.
 

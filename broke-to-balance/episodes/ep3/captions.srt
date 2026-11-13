@@ -787,14 +787,22 @@ and tell me in the comments:
 what was your biggest leak?
 
 198
-00:07:09,076 --> 00:07:11,692
-This video is for education only and
+00:07:09,076 --> 00:07:11,493
+And if you learned something from this video,
 
 199
-00:07:11,692 --> 00:07:13,363
-isn't financial advice.
+00:07:11,493 --> 00:07:13,480
+don't forget to watch our next video.
 
 200
-00:07:13,363 --> 00:07:14,235
+00:07:13,740 --> 00:07:16,356
+This video is for education only and
+
+201
+00:07:16,356 --> 00:07:18,027
+isn't financial advice.
+
+202
+00:07:18,027 --> 00:07:18,899
 Case closed.
 

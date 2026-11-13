@@ -11,13 +11,13 @@ Payday hits… and somehow you're broke again by the 20th. In under 4 minutes yo
 
 ⏱ CHAPTERS
 0:00 Why you're broke by the 20th
-0:16 Welcome to Broke to Balance
+0:15 Welcome to Broke to Balance
 0:27 Step 1: Start with take-home pay
 0:48 The 50/30/20 rule
-1:13 Needs (50%)
+1:12 Needs (50%)
 1:35 Wants (30%)
-1:52 Savings & debt (20%)
-2:23 3 tips to make it stick
+1:51 Savings & debt (20%)
+2:22 3 tips to make it stick
 2:46 3 budgeting mistakes
 3:18 Recap
 

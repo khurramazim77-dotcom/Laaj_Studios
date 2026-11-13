@@ -173,6 +173,7 @@ SPEC = [
         ('r5', "Then automate what you recover.", None),
         ('r6', "Next time, we go head to head: debt snowball versus debt avalanche.", None),
         ('r7', "If this helped, subscribe, and tell me in the comments: what was your biggest leak?", None),
+        ('r7b', "And if you learned something from this video, don't forget to watch our next video.", None),
         ('r8', "This video is for education only and isn't financial advice. Case closed.", None)],
         els=[E('checklist', 'r1', until='r6', region=(300, 300, 1620, 900), size=40, items=[
                  dict(text='Gather 90 days of evidence', at='r2', color=GREEN), dict(text='Sort: needs, wants, savings', at='r3', color=GREEN),

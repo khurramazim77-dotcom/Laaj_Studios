@@ -159,6 +159,7 @@ SPEC = [
         ('r4b', "And remember, even a small start beats waiting for a perfect plan.", None),
         ('r5', "In the next video, we'll tackle the other side of the equation: how to stop overspending with a simple thirty-minute money audit.", None),
         ('r6', "If this helped, subscribe, and tell me in the comments: what's your emergency fund goal?", None),
+        ('r6b', "And if you learned something from this video, don't forget to watch our next video.", None),
         ('r7', "This video is for education only and isn't financial advice. See you next time.", None)],
         els=[E('bullets', 'r1', until='r5', region=(220, 300, 1700, 860), size=46, items=[
                  dict(text='Starter fund: $500-$1,000', icon='piggy', color=GREEN, at='r2'), dict(text='Full fund: 3-6 months of essentials', icon='shield', color=BLUE, at='r3'),

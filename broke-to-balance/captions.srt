@@ -363,14 +363,22 @@ and tell me in the comments:
 which bucket is hardest for you?
 
 92
-00:03:32,748 --> 00:03:35,160
-This video is for education only,
+00:03:32,748 --> 00:03:35,254
+And if you learned something from this video,
 
 93
-00:03:35,160 --> 00:03:37,134
-and isn't financial advice.
+00:03:35,254 --> 00:03:37,314
+don't forget to watch our next video.
 
 94
-00:03:37,134 --> 00:03:38,449
+00:03:37,574 --> 00:03:39,986
+This video is for education only,
+
+95
+00:03:39,986 --> 00:03:41,959
+and isn't financial advice.
+
+96
+00:03:41,959 --> 00:03:43,275
 See you next time.
 
