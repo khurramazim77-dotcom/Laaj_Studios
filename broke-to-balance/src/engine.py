@@ -60,6 +60,11 @@ def background(img, t, bg):
         glow = Image.new('RGBA', (W, H), (0, 0, 0, 0)); d = ImageDraw.Draw(glow)
         d.ellipse([-500, 100, 900, 1300], fill=(47, 128, 237, 90)); d.ellipse([1020, 100, 2420, 1300], fill=(255, 107, 91, 80))
         img.alpha_composite(glow.filter(ImageFilter.GaussianBlur(160))); _tiled(img, 'stripes', tt * 14, 0)
+    elif k == 'footage':
+        fr = cover(clip_frame(bg['clip'], tt * bg.get('speed', 1.0) + bg.get('offset', 0)), W, H)
+        img.paste(fr, (0, 0)); fade_overlay(img, bg.get('tint', NAVY), bg.get('dim', .55))
+        if bg.get('grid'):
+            _tiled(img, bg['grid'], tt * 8, tt * 4)
     elif k == 'paper':      # planner paper
         img.paste(Image.new('RGBA', (W, H), (250, 246, 236, 255)), (0, 0))
         d = ImageDraw.Draw(img, 'RGBA')
@@ -70,6 +75,113 @@ def background(img, t, bg):
         img.alpha_composite(g.filter(ImageFilter.GaussianBlur(120)))
     else:
         _lib.bg_soft(img, tt, bg.get('c1', NAVY), bg.get('c2', NAVY2), bg.get('accent', GREEN), bg.get('k', 0))
+
+
+# ---------------------------------------------------------------- stock footage (Pixabay clips, frames pre-extracted)
+import os, subprocess
+CLIPS = os.environ.get('B2B_CLIPS', '/tmp/claude-0/-home-user-Laaj-Studios/864a7258-c942-549a-bb5d-f0b0a13dd3aa/scratchpad/clips')
+FRAMES = os.environ.get('B2B_FRAMES', '/tmp/claude-0/-home-user-Laaj-Studios/864a7258-c942-549a-bb5d-f0b0a13dd3aa/scratchpad/frames')
+_nfr, _mask = {}, {}
+
+
+def prep_clip(name, maxsec=16):
+    d = f'{FRAMES}/{name}'
+    if os.path.isdir(d) and os.listdir(d):
+        return
+    os.makedirs(d, exist_ok=True)
+    subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', f'{CLIPS}/{name}.mp4', '-t', str(maxsec), '-vf',
+                    'fps=30,scale=1280:720:force_original_aspect_ratio=increase,crop=1280:720', '-q:v', '4', f'{d}/%05d.jpg'], check=True)
+
+
+def prep_spec(spec):
+    names = set()
+    for sc in spec:
+        if sc.get('bg', {}).get('kind') == 'footage':
+            names.add(sc['bg']['clip'])
+        for el in sc.get('els', []):
+            if el['kind'] == 'clip':
+                names.add(el['clip'])
+            if el['kind'] == 'montage':
+                names.update(el['clips'])
+    for n in names:
+        prep_clip(n)
+
+
+def clip_frame(name, tsec):
+    d = f'{FRAMES}/{name}'
+    if name not in _nfr:
+        _nfr[name] = len(os.listdir(d))
+    n = _nfr[name]
+    return Image.open(f'{d}/{int(tsec * 30) % n + 1:05d}.jpg').convert('RGBA')
+
+
+def cover(im, w, h):
+    sw, sh = im.size; sc = max(w / sw, h / sh); nw, nh = int(sw * sc + .5), int(sh * sc + .5)
+    im = im.resize((nw, nh), Image.BILINEAR); x, y = (nw - w) // 2, (nh - h) // 2
+    return im.crop((x, y, x + w, y + h))
+
+
+def el_clip(img, t, S, el, R):
+    x0, y0, x1, y1 = el['region']; w, h = int(x1 - x0), int(y1 - y0); a0 = R(el['at']); p = e_back(prog(t, a0, .6)); al = clamp(p)
+    fr = cover(clip_frame(el['clip'], (t - a0) * el.get('speed', 1.0) + el.get('offset', 0)), w, h)
+    if (w, h) not in _mask:
+        m = Image.new('L', (w * 2, h * 2), 0); ImageDraw.Draw(m).rounded_rectangle([0, 0, w * 2 - 1, h * 2 - 1], 40, fill=255); _mask[(w, h)] = m.resize((w, h), Image.LANCZOS)
+    col = el.get('color', GOLD); shadow(img, (x0, y0, x1, y1), 24, 24, int(120 * al))
+    fr = Image.blend(fr, Image.new('RGBA', fr.size, rgba(NAVY, 255)), el.get('dim', .12))
+    mk = _mask[(w, h)].point(lambda v: int(v * al))
+    img.paste(fr, (int(x0), int(y0 + 30 * (1 - al))), mk)
+    cv = Cv((x0 - 6, y0 - 6, x1 + 6, y1 + 6)); cv.rrect((x0, y0, x1, y1), 20, outline=rgba(col, 255), width=5); cv.paste(img, al, dy=30 * (1 - al))
+    if el.get('label'):
+        pill(img, x0 + 24 + text_w(el['label'], 24, 'Black') / 2 + 22, y1 - 40, el['label'], 24, col, NAVY, padx=22, h=48, alpha=al)
+
+
+def stamp_img(txt_, size, col, angle=-5, pad=26, border=9):
+    """Rubber-stamp style label rendered with AA and rotated; returns RGBA image."""
+    f = font(size * 2, 'Black'); w = int(f.getlength(txt_)) + pad * 4; h = int(size * 2 * 1.3) + pad * 2
+    im = Image.new('RGBA', (w, h), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
+    d.rounded_rectangle([border, border, w - border, h - border], 24, outline=rgba(col), width=border)
+    d.text((w / 2, h / 2), txt_, font=f, fill=rgba(col), anchor='mm')
+    im = im.rotate(angle, resample=Image.BICUBIC, expand=True)
+    return im.resize((im.width // 2, im.height // 2), Image.LANCZOS)
+
+
+def paste_center(img, im, cx, cy, al=1.0, scale=1.0):
+    if scale != 1.0:
+        im = im.resize((max(1, int(im.width * scale)), max(1, int(im.height * scale))), Image.BILINEAR)
+    if al < .999:
+        im = im.copy(); im.putalpha(im.getchannel('A').point(lambda v: int(v * al)))
+    img.paste(im, (int(cx - im.width / 2), int(cy - im.height / 2)), im)
+
+
+def el_montage(img, t, S, el, R):
+    a0 = R(el['at']); lt = t - a0
+    if lt < 0:
+        return
+    clips, words = el['clips'], el['words']; step = el.get('step', 1.7)
+    i = min(int(lt / step), len(clips) - 1); u = clamp((lt - i * step) / step)
+    fr = cover(clip_frame(clips[i], lt - i * step + el.get('offset', 0)), W, H)
+    z = 1 + 0.10 * u; cw, ch = W / z, H / z
+    fr = fr.resize((W, H), Image.BILINEAR, box=((W - cw) / 2, (H - ch) / 2, (W + cw) / 2, (H + ch) / 2))
+    img.paste(fr, (0, 0)); fade_overlay(img, NAVY, el.get('dim', .45))
+    if u < .09:
+        fade_overlay(img, WHITE, .75 * (1 - u / .09))        # cut flash
+    if el.get('label'):
+        pill(img, 960, 190, el['label'], 34, CORAL, WHITE, padx=36, h=64)
+    q = e_back(clamp(u * 9)); shake = (1 - clamp(u * 6)) * 8
+    st = stamp_img(words[i], 118, WHITE if not el.get('stamp') else el['stamp'], -4)
+    paste_center(img, st, 960 + math.sin(lt * 90) * shake, 590, clamp(q), 0.8 + 0.2 * clamp(q))
+
+
+def el_stamps(img, t, S, el, R):
+    x0, y0, x1, y1 = el.get('region', CONTENT); items = el['items']; n = len(items); rh = (y1 - y0) / n
+    for i, it in enumerate(items):
+        ts = R(it['at']); p = clamp((t - ts) / .35)
+        if p <= 0:
+            continue
+        y = y0 + rh * (i + .5); al = e_out(p)
+        text(img, (x0 + 80, y), it['text'], el.get('size', 70), 'Black', WHITE, 'lm', al)
+        sc = 1.6 - 0.6 * e_out(p)
+        paste_center(img, stamp_img(el.get('stamp', 'GUILTY'), 54, CORAL, -7), x1 - 330, y, al, sc)
 
 
 # ---------------------------------------------------------------- refs, helpers
@@ -564,9 +676,9 @@ def el_cta(img, t, S, el, R):
 
 KINDS = dict(title=el_title, bullets=el_bullets, bars=el_bars, columns=el_columns, donut=el_donut, line=el_line, table=el_table, counter=el_counter,
              gauge=el_gauge, cards=el_cards, compare=el_compare, calendar=el_calendar, race=el_race, checklist=el_checklist, flow=el_flow,
-             statement=el_statement, callout=el_callout, steps=el_steps, brand=el_brand, cta=el_cta)
+             statement=el_statement, callout=el_callout, steps=el_steps, brand=el_brand, cta=el_cta, clip=el_clip, montage=el_montage, stamps=el_stamps)
 DEFAULT_SFX = dict(title='pop', bullets='tick', bars='bubble', columns='bubble', donut='bubble', line='slide', table='tick', counter='coin', gauge='bubble',
-                   cards='thud', compare='slide', calendar='tick', race='slide', checklist='ding', flow='pop', statement='tick', callout='thud', steps='pop', brand='sparkle', cta='cash')
+                   cards='thud', compare='slide', calendar='tick', race='slide', checklist='ding', flow='pop', statement='tick', callout='thud', steps='pop', brand='sparkle', cta='cash', clip='slide', montage=None, stamps=None)
 
 
 def E(kind, at, **kw):
@@ -582,7 +694,7 @@ def make_render(sc, style):
         R = lambda ref: parse_ref(ref, S)
         h = sc.get('header')
         if h:
-            h = dict(h); h['style'] = style.get('header', 'pill'); draw_header(img, t, h, R(h.get('at', sc['segs'][0][0])))
+            h = dict(h); h['style'] = style.get('header', 'pill'); draw_header(img, t, h, R(h.get('at', sc['segs'][0][0] if sc.get('segs') else 0.0)))
         for el in sc.get('els', []):
             a0 = R(el['at']); fi = e_out(prog(t, a0 - .05, .3)) if el['kind'] not in ('brand',) else 1.0
             fo = 1 - e_inout(prog(t, R(el['until']), .35)) if el.get('until') else 1.0
@@ -622,7 +734,10 @@ def sfx_events(sc, S):
 
 def install(spec, style, scenes_module):
     """Wire an episode into build.py via the scenes module registry."""
-    scenes_module.SCRIPT = [(sc['id'], sc['segs']) for sc in spec]
+    scenes_module.SCRIPT = [(sc['id'], sc.get('segs', [])) for sc in spec]
+    scenes_module.DURS = {sc['id']: sc['dur'] for sc in spec if 'dur' in sc}
+    scenes_module.LEADS = {sc['id']: sc['lead'] for sc in spec if 'lead' in sc}
+    scenes_module.MOODS = {sc['id']: sc['mood'] for sc in spec if 'mood' in sc}
     scenes_module.RENDER = {sc['id']: make_render(sc, style) for sc in spec}
     byid = {sc['id']: sc for sc in spec}
 

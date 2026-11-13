@@ -1,0 +1,800 @@
+1
+00:00:04,200 --> 00:00:05,581
+Case file number one:
+
+2
+00:00:05,581 --> 00:00:07,095
+the vanishing paycheck.
+
+3
+00:00:07,355 --> 00:00:08,046
+Every month,
+
+4
+00:00:08,046 --> 00:00:10,294
+the same money walks in the front door,
+
+5
+00:00:10,294 --> 00:00:12,254
+and somehow it slips out the back.
+
+6
+00:00:12,514 --> 00:00:14,415
+You don't have an income problem.
+
+7
+00:00:14,415 --> 00:00:15,798
+You have a leak problem.
+
+8
+00:00:16,058 --> 00:00:16,396
+Today,
+
+9
+00:00:16,396 --> 00:00:19,161
+we're going to find every leak in thirty minutes.
+
+10
+00:00:20,561 --> 00:00:22,223
+Welcome to Broke to Balance.
+
+11
+00:00:22,223 --> 00:00:23,886
+I'm your guide on this case.
+
+12
+00:00:24,146 --> 00:00:26,261
+A quick note before we start:
+
+13
+00:00:26,261 --> 00:00:27,721
+this is educational,
+
+14
+00:00:27,721 --> 00:00:29,909
+not personal financial advice.
+
+15
+00:00:29,909 --> 00:00:31,733
+Now, let's open the file.
+
+16
+00:00:33,133 --> 00:00:33,709
+Step one:
+
+17
+00:00:33,709 --> 00:00:34,989
+gather the evidence.
+
+18
+00:00:35,249 --> 00:00:37,583
+Download the last sixty to ninety days
+
+19
+00:00:37,583 --> 00:00:39,426
+of transactions from your bank
+
+20
+00:00:39,426 --> 00:00:41,023
+accounts and credit cards.
+
+21
+00:00:41,283 --> 00:00:43,893
+Most banks let you export a spreadsheet.
+
+22
+00:00:43,893 --> 00:00:45,003
+If yours doesn't,
+
+23
+00:00:45,003 --> 00:00:47,156
+copy the lines into one yourself.
+
+24
+00:00:47,416 --> 00:00:49,103
+Why sixty to ninety days?
+
+25
+00:00:49,103 --> 00:00:51,331
+Because one month can be unusual.
+
+26
+00:00:51,331 --> 00:00:53,896
+Three months shows your real patterns.
+
+27
+00:00:55,296 --> 00:00:55,893
+Step two:
+
+28
+00:00:55,893 --> 00:00:58,218
+sort every line into three buckets,
+
+29
+00:00:58,218 --> 00:01:00,543
+the same ones from our first video:
+
+30
+00:01:00,543 --> 00:01:02,269
+needs, wants, and savings.
+
+31
+00:01:02,529 --> 00:01:03,445
+In our example,
+
+32
+00:01:03,445 --> 00:01:05,885
+take-home pay is three thousand dollars.
+
+33
+00:01:06,145 --> 00:01:08,248
+The audit finds needs at sixteen
+
+34
+00:01:08,248 --> 00:01:09,694
+hundred forty dollars,
+
+35
+00:01:09,694 --> 00:01:11,731
+wants at eleven hundred eighty,
+
+36
+00:01:11,731 --> 00:01:14,294
+and savings at just one hundred eighty.
+
+37
+00:01:14,554 --> 00:01:16,721
+Compare that to the fifty, thirty,
+
+38
+00:01:16,721 --> 00:01:17,677
+twenty targets:
+
+39
+00:01:17,677 --> 00:01:19,590
+fifteen hundred, nine hundred,
+
+40
+00:01:19,590 --> 00:01:20,609
+and six hundred.
+
+41
+00:01:20,869 --> 00:01:21,387
+The gap:
+
+42
+00:01:21,387 --> 00:01:23,522
+needs are one hundred forty over,
+
+43
+00:01:23,522 --> 00:01:25,722
+wants are two hundred eighty over,
+
+44
+00:01:25,722 --> 00:01:28,440
+and savings are four hundred twenty short.
+
+45
+00:01:28,700 --> 00:01:30,706
+That's the story the numbers tell.
+
+46
+00:01:30,706 --> 00:01:32,359
+Now let's find the culprits.
+
+47
+00:01:41,359 --> 00:01:41,950
+Exhibit A:
+
+48
+00:01:41,950 --> 00:01:42,778
+subscriptions.
+
+49
+00:01:42,778 --> 00:01:44,315
+These are the quiet leaks,
+
+50
+00:01:44,315 --> 00:01:47,093
+because they bill you while you're not looking.
+
+51
+00:01:47,353 --> 00:01:49,313
+List every recurring charge,
+
+52
+00:01:49,313 --> 00:01:52,253
+then multiply the monthly price by twelve.
+
+53
+00:01:52,253 --> 00:01:53,723
+That's the real cost.
+
+54
+00:01:53,983 --> 00:01:54,936
+In our example,
+
+55
+00:01:54,936 --> 00:01:56,715
+five subscriptions add up to
+
+56
+00:01:56,715 --> 00:01:58,493
+sixty-eight dollars a month.
+
+57
+00:01:58,493 --> 00:02:01,669
+That's about eight hundred fifteen dollars a year.
+
+58
+00:02:01,929 --> 00:02:04,436
+Now ask three questions about each one.
+
+59
+00:02:04,436 --> 00:02:05,979
+Did I use it this month?
+
+60
+00:02:05,979 --> 00:02:07,779
+Would I sign up again today?
+
+61
+00:02:07,779 --> 00:02:09,321
+Is there a cheaper plan?
+
+62
+00:02:09,581 --> 00:02:10,541
+Cancel, pause,
+
+63
+00:02:10,541 --> 00:02:12,803
+or downgrade anything that fails.
+
+64
+00:02:14,203 --> 00:02:14,910
+Exhibit B:
+
+65
+00:02:14,910 --> 00:02:16,042
+the small stuff.
+
+66
+00:02:16,042 --> 00:02:18,165
+Coffee, snacks, delivery fees.
+
+67
+00:02:18,425 --> 00:02:20,935
+Nobody feels a seven dollar purchase.
+
+68
+00:02:20,935 --> 00:02:23,514
+But seven dollars, three times a week,
+
+69
+00:02:23,514 --> 00:02:26,499
+is about one thousand ninety dollars a year.
+
+70
+00:02:26,759 --> 00:02:29,174
+That's not a reason to give up coffee.
+
+71
+00:02:29,174 --> 00:02:31,272
+It's a reason to choose the small
+
+72
+00:02:31,272 --> 00:02:32,860
+purchases you truly love,
+
+73
+00:02:32,860 --> 00:02:35,085
+and cut the ones you barely notice.
+
+74
+00:02:36,485 --> 00:02:37,171
+Exhibit C:
+
+75
+00:02:37,171 --> 00:02:38,406
+impulse purchases.
+
+76
+00:02:38,406 --> 00:02:41,083
+The fix isn't willpower, it's friction.
+
+77
+00:02:41,343 --> 00:02:41,900
+Rule one:
+
+78
+00:02:41,900 --> 00:02:43,507
+the twenty-four hour rule.
+
+79
+00:02:43,507 --> 00:02:44,682
+Put it in the cart,
+
+80
+00:02:44,682 --> 00:02:46,537
+and wait a day before you buy.
+
+81
+00:02:46,797 --> 00:02:47,380
+Rule two:
+
+82
+00:02:47,380 --> 00:02:48,482
+for bigger items,
+
+83
+00:02:48,482 --> 00:02:50,298
+keep a thirty-day wish list.
+
+84
+00:02:50,298 --> 00:02:52,567
+If you still want it after a month,
+
+85
+00:02:52,567 --> 00:02:54,252
+it's probably a real want.
+
+86
+00:02:54,512 --> 00:02:55,298
+Rule three:
+
+87
+00:02:55,298 --> 00:02:58,726
+remove saved cards from shopping sites and apps,
+
+88
+00:02:58,726 --> 00:03:01,155
+so buying takes a few extra steps.
+
+89
+00:03:01,415 --> 00:03:02,376
+And rule four:
+
+90
+00:03:02,376 --> 00:03:05,055
+unsubscribe from promotional emails and
+
+91
+00:03:05,055 --> 00:03:07,252
+turn off shopping notifications.
+
+92
+00:03:07,252 --> 00:03:09,038
+If you can't see the sale,
+
+93
+00:03:09,038 --> 00:03:10,343
+it can't tempt you.
+
+94
+00:03:11,743 --> 00:03:12,493
+Exhibit D:
+
+95
+00:03:12,493 --> 00:03:12,868
+fees.
+
+96
+00:03:12,868 --> 00:03:15,494
+These are the leaks nobody chooses.
+
+97
+00:03:15,754 --> 00:03:18,380
+Late fees, overdraft fees, ATM fees,
+
+98
+00:03:18,380 --> 00:03:20,423
+and credit card interest can
+
+99
+00:03:20,423 --> 00:03:22,392
+quietly drain your account.
+
+100
+00:03:22,652 --> 00:03:25,685
+Set up autopay for at least the minimum payment,
+
+101
+00:03:25,685 --> 00:03:27,644
+and turn on low-balance alerts.
+
+102
+00:03:27,904 --> 00:03:29,678
+Use your bank's own ATMs,
+
+103
+00:03:29,678 --> 00:03:32,020
+and if you do get hit with a fee,
+
+104
+00:03:32,020 --> 00:03:34,503
+call and ask for a one-time waiver.
+
+105
+00:03:34,503 --> 00:03:36,206
+Many banks will say yes.
+
+106
+00:03:37,606 --> 00:03:38,337
+Exhibit D:
+
+107
+00:03:38,337 --> 00:03:40,383
+the needs you can negotiate.
+
+108
+00:03:40,643 --> 00:03:42,394
+Needs aren't always fixed.
+
+109
+00:03:42,394 --> 00:03:44,213
+Insurance, phone, internet,
+
+110
+00:03:44,213 --> 00:03:47,715
+and even some utilities can often be shopped around.
+
+111
+00:03:47,975 --> 00:03:49,215
+Call your providers,
+
+112
+00:03:49,215 --> 00:03:52,129
+ask what discounts or cheaper plans they offer,
+
+113
+00:03:52,129 --> 00:03:53,307
+and compare quotes.
+
+114
+00:03:53,567 --> 00:03:56,671
+If you trim just twenty dollars from three bills,
+
+115
+00:03:56,671 --> 00:03:58,508
+that's sixty dollars a month,
+
+116
+00:03:58,508 --> 00:04:00,978
+or seven hundred twenty dollars a year.
+
+117
+00:04:02,378 --> 00:04:02,990
+Step three:
+
+118
+00:04:02,990 --> 00:04:05,048
+decide where the recovered money goes
+
+119
+00:04:05,048 --> 00:04:06,493
+before you spend it again.
+
+120
+00:04:06,753 --> 00:04:09,428
+Say you cancel two subscriptions for about
+
+121
+00:04:09,428 --> 00:04:11,275
+thirty-eight dollars a month,
+
+122
+00:04:11,275 --> 00:04:13,440
+and trim small purchases by sixty.
+
+123
+00:04:13,440 --> 00:04:16,178
+That's roughly one hundred dollars a month.
+
+124
+00:04:16,438 --> 00:04:18,937
+Set an automatic transfer on payday:
+
+125
+00:04:18,937 --> 00:04:21,296
+straight into your emergency fund,
+
+126
+00:04:21,296 --> 00:04:22,337
+or toward debt.
+
+127
+00:04:22,597 --> 00:04:23,260
+Over a year,
+
+128
+00:04:23,260 --> 00:04:25,249
+that's about twelve hundred dollars,
+
+129
+00:04:25,249 --> 00:04:26,740
+from a thirty-minute audit.
+
+130
+00:04:34,940 --> 00:04:36,680
+Let's see what one audit can do.
+
+131
+00:04:36,940 --> 00:04:40,280
+After trimming sixty dollars from negotiated bills,
+
+132
+00:04:40,280 --> 00:04:42,179
+and ninety-eight dollars from
+
+133
+00:04:42,179 --> 00:04:44,406
+subscriptions and small purchases,
+
+134
+00:04:44,406 --> 00:04:46,501
+our example frees up one hundred
+
+135
+00:04:46,501 --> 00:04:48,335
+fifty-eight dollars a month.
+
+136
+00:04:48,595 --> 00:04:51,287
+Savings jump from one hundred eighty to three
+
+137
+00:04:51,287 --> 00:04:53,501
+hundred thirty-eight dollars a month.
+
+138
+00:04:53,501 --> 00:04:55,954
+That's nearly double, with no new income.
+
+139
+00:04:56,214 --> 00:04:59,248
+It's still short of the six hundred dollar target,
+
+140
+00:04:59,248 --> 00:05:00,219
+and that's fine.
+
+141
+00:05:00,219 --> 00:05:02,768
+The first audit is always the biggest win,
+
+142
+00:05:02,768 --> 00:05:05,074
+and you can run it again next quarter.
+
+143
+00:05:06,474 --> 00:05:08,546
+Here's the part most audits miss:
+
+144
+00:05:08,546 --> 00:05:09,928
+don't cut all the fun.
+
+145
+00:05:10,188 --> 00:05:13,203
+A budget with zero fun gets abandoned fast.
+
+146
+00:05:13,203 --> 00:05:15,447
+Instead, give your wants a home.
+
+147
+00:05:15,707 --> 00:05:17,311
+Set a monthly fun budget,
+
+148
+00:05:17,311 --> 00:05:19,750
+move it to a separate account or card,
+
+149
+00:05:19,750 --> 00:05:22,124
+and spend from that and nothing else.
+
+150
+00:05:22,384 --> 00:05:24,079
+When the fun money runs out,
+
+151
+00:05:24,079 --> 00:05:25,834
+you're done until next month.
+
+152
+00:05:25,834 --> 00:05:26,983
+And while it lasts,
+
+153
+00:05:26,983 --> 00:05:28,980
+you can spend it with zero guilt.
+
+154
+00:05:30,380 --> 00:05:31,831
+Here's a fun challenge:
+
+155
+00:05:31,831 --> 00:05:33,597
+a seven day spending freeze.
+
+156
+00:05:33,857 --> 00:05:36,121
+For one week, spend only on needs:
+
+157
+00:05:36,121 --> 00:05:38,984
+rent, groceries, utilities, transportation,
+
+158
+00:05:38,984 --> 00:05:39,916
+and insurance.
+
+159
+00:05:40,176 --> 00:05:42,885
+Each day, write down what you almost bought.
+
+160
+00:05:42,885 --> 00:05:44,485
+Those notes are pure gold.
+
+161
+00:05:44,745 --> 00:05:45,924
+At the end of the week,
+
+162
+00:05:45,924 --> 00:05:48,178
+you'll know which wants you actually missed,
+
+163
+00:05:48,178 --> 00:05:50,484
+and which ones you never thought about again.
+
+164
+00:05:51,884 --> 00:05:53,953
+What should you use to track all this?
+
+165
+00:05:53,953 --> 00:05:55,642
+There's no single right answer.
+
+166
+00:05:55,902 --> 00:05:57,913
+A spreadsheet is free, flexible,
+
+167
+00:05:57,913 --> 00:06:00,617
+and shows you exactly how the numbers work.
+
+168
+00:06:00,877 --> 00:06:02,477
+Budgeting apps can import
+
+169
+00:06:02,477 --> 00:06:04,204
+transactions automatically,
+
+170
+00:06:04,204 --> 00:06:06,828
+but check their fees and privacy policies
+
+171
+00:06:06,828 --> 00:06:08,876
+before connecting your accounts.
+
+172
+00:06:09,136 --> 00:06:11,333
+And plain pen and paper works too.
+
+173
+00:06:11,333 --> 00:06:13,336
+The best tool is the one you'll
+
+174
+00:06:13,336 --> 00:06:14,951
+actually open every week.
+
+175
+00:06:16,351 --> 00:06:18,311
+A few audit mistakes to avoid.
+
+176
+00:06:18,571 --> 00:06:20,801
+Don't turn it into a shame spiral.
+
+177
+00:06:20,801 --> 00:06:23,163
+You're an investigator, not a judge.
+
+178
+00:06:23,163 --> 00:06:24,737
+The goal is information.
+
+179
+00:06:24,997 --> 00:06:26,650
+Don't cut everything at once.
+
+180
+00:06:26,650 --> 00:06:28,588
+Pick two or three leaks, fix them,
+
+181
+00:06:28,588 --> 00:06:29,785
+and build from there.
+
+182
+00:06:30,045 --> 00:06:31,743
+Watch for annual charges,
+
+183
+00:06:31,743 --> 00:06:33,780
+like insurance or memberships,
+
+184
+00:06:33,780 --> 00:06:36,360
+which hide between monthly statements.
+
+185
+00:06:36,620 --> 00:06:38,738
+And repeat the audit every quarter.
+
+186
+00:06:38,738 --> 00:06:39,706
+Leaks grow back.
+
+187
+00:06:47,506 --> 00:06:48,820
+Let's close the case.
+
+188
+00:06:49,080 --> 00:06:51,039
+Gather ninety days of evidence.
+
+189
+00:06:51,299 --> 00:06:53,795
+Sort it into needs, wants, and savings.
+
+190
+00:06:54,055 --> 00:06:56,278
+Hunt the subscriptions, the small stuff,
+
+191
+00:06:56,278 --> 00:06:57,445
+and the impulse buys.
+
+192
+00:06:57,705 --> 00:06:59,608
+Then automate what you recover.
+
+193
+00:06:59,868 --> 00:07:01,786
+Next time, we go head to head:
+
+194
+00:07:01,786 --> 00:07:04,087
+debt snowball versus debt avalanche.
+
+195
+00:07:04,347 --> 00:07:05,781
+If this helped, subscribe,
+
+196
+00:07:05,781 --> 00:07:07,326
+and tell me in the comments:
+
+197
+00:07:07,326 --> 00:07:08,816
+what was your biggest leak?
+
+198
+00:07:09,076 --> 00:07:11,692
+This video is for education only and
+
+199
+00:07:11,692 --> 00:07:13,363
+isn't financial advice.
+
+200
+00:07:13,363 --> 00:07:14,235
+Case closed.
+

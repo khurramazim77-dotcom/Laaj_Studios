@@ -13,6 +13,7 @@ os.environ['B2B_FINAL'] = M['final']; os.environ['B2B_MUSIC'] = str(M['music']);
 import lib
 lib.SPEED = float(M.get('gfx_speed', 1.6)); lib.BG = float(M.get('bg_speed', 2.0))
 import build, scenes, engine
+engine.prep_spec(ep.SPEC)
 engine.install(ep.SPEC, ep.STYLE, scenes)
 build.TRANS = ep.STYLE['trans']
 

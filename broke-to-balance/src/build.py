@@ -54,7 +54,7 @@ def tts(text, key):
         proc = f'{WORK}/tts/own_{key}.wav'
         sh(['ffmpeg', '-y', '-loglevel', 'error', '-i', src, '-af', af, '-ac', '1', '-ar', str(SR), '-c:a', 'pcm_s16le', proc])
     else:
-        h = hashlib.md5((VOICE + text).encode()).hexdigest()[:10]
+        h = hashlib.md5((VOICE + os.environ.get('B2B_SPEED', '1.0') + text).encode()).hexdigest()[:10]
         raw = f'{WORK}/tts/{key}_{VOICE}_{h}_raw.wav'
         proc = f'{WORK}/tts/{key}_{VOICE}_{h}.wav'
         if not os.path.exists(proc):
@@ -254,6 +254,64 @@ def music(dur, drums_from=0.0, mel_from=0.0):
     return out[:int(dur * SR)]
 
 
+
+def _saw(f, t, nh=10):
+    return sum(np.sin(2 * np.pi * f * k * t) / k for k in range(1, nh + 1)) * 0.5
+
+
+def _lp(x, fc):
+    b_, a_ = butter(2, fc / (SR / 2), 'low'); return lfilter(b_, a_, x)
+
+
+def _put(y, x, t0):
+    i = int(t0 * SR)
+    if i < 0 or i >= len(y):
+        return
+    m = min(len(x), len(y) - i); y[i:i + m] += x[:m]
+
+
+def drama(kind, dur):
+    """Cinematic underscore cues for mood scenes (replace the lo-fi bed while active)."""
+    n = int(dur * SR); t = np.arange(n) / SR; y = np.zeros(n)
+    rng = np.random.default_rng(11)
+    if kind == 'noir':
+        lfo = 0.6 + 0.4 * np.sin(2 * np.pi * t / 7.0)
+        y += _lp(_saw(55, t) + _saw(55 * 1.007, t) + 0.6 * _saw(82.4, t) + 0.35 * _saw(116.5, t), 520) * 0.075 * lfo * np.minimum(1, t / 1.5)
+        k = 0
+        while k * 1.2 < dur - 0.5:
+            for off, g in ((0.0, 0.5), (0.3, 0.32)):
+                tt = np.arange(int(0.25 * SR)) / SR; _put(y, np.sin(2 * np.pi * 52 * tt) * np.exp(-tt * 14) * g, k * 1.2 + off)
+            k += 1
+        for k in range(int(dur / 4.8)):
+            tt = np.arange(int(1.8 * SR)) / SR
+            _put(y, np.sin(2 * np.pi * (932 - 40 * tt / 1.8) * tt) * np.sin(np.pi * tt / 1.8) ** 2 * (0.5 + 0.5 * np.sin(2 * np.pi * 6 * tt)) * 0.018, 1.8 + k * 4.8)
+        # riser out into the next scene
+        r = max(0, dur - 2.2); tt = np.arange(int(2.2 * SR)) / SR; u = tt / 2.2
+        _put(y, np.sin(2 * np.pi * np.cumsum(180 + 1500 * u ** 2) / SR) * u ** 2 * 0.05, r)
+    elif kind == 'tension':
+        u = t / dur
+        trem = 0.65 + 0.35 * np.sin(2 * np.pi * (9 + 8 * u) * t)
+        chord = sum(_saw(f, t, 8) for f in (110, 130.8, 164.8, 207.65))
+        y += _lp(chord, 1800) * 0.05 * u ** 1.4 * trem
+        y += np.sin(2 * np.pi * np.cumsum(200 * 2 ** (3.4 * u)) / SR) * 0.035 * u ** 2
+        tk = 0.0; step = 0.7
+        while tk < dur - 0.6:
+            _put(y, sfx('tick2') * 1.4, tk); tk += step; step = max(0.14, step * 0.86)
+        _put(y, sfx('boom') * 0.9, max(0, dur - 0.55))
+        _put(y, np.sin(2 * np.pi * 38 * np.arange(int(1.2 * SR)) / SR) * np.exp(-np.arange(int(1.2 * SR)) / (0.35 * SR)) * 0.6, max(0, dur - 0.55))
+    elif kind == 'reveal':
+        _put(y, sfx('boom') * 1.1, 0.35)
+        pad = sum(_saw(f, t, 6) for f in (130.8, 164.8, 196.0, 246.9, 293.7))
+        y += _lp(pad, 1500) * 0.06 * np.clip((t - 0.5) / 1.2, 0, 1) * np.minimum(1, (dur - t) / 0.8)
+        for i, f in enumerate((1046.5, 1318.5, 1568, 1976, 2349, 1568, 1318.5)):
+            tt = np.arange(int(1.1 * SR)) / SR; _put(y, (np.sin(2 * np.pi * f * tt) + .3 * np.sin(4 * np.pi * f * tt)) * np.exp(-tt * 5) * 0.05, 1.0 + i * 0.5)
+    elif kind == 'verdict':
+        y += _lp(_saw(55, t) + _saw(55.4, t) + 0.5 * _saw(82.4, t), 420) * 0.07 * np.minimum(1, t / 0.8) * np.minimum(1, (dur - t) / 0.6)
+        pad = sum(_saw(f, t, 6) for f in (130.8, 196.0, 261.6, 329.6))
+        y += _lp(pad, 1600) * 0.06 * np.clip((t - (dur - 1.8)) / 0.6, 0, 1) * np.minimum(1, (dur - t) / 0.5)
+    return y
+
+
 # ------------------------------------------------------------------ timeline + audio
 def build_timeline():
     from scenes import SCRIPT, events
@@ -264,7 +322,8 @@ def build_timeline():
     sfx_ev = []
     for si, (sid, segs) in enumerate(SCRIPT):
         S = {}
-        lead = 0.9 if si == 0 else 0.5
+        import scenes as _sc
+        lead = getattr(_sc, 'LEADS', {}).get(sid, 0.9 if si == 0 else 0.5)
         t = lead
         clips = []
         for (k, say, show) in segs:
@@ -274,6 +333,8 @@ def build_timeline():
             clips.append((k, t, x, show or say))
             t += d + 0.26
         dur = t - 0.26 + (0.9 if si < len(SCRIPT) - 1 else 2.2)
+        if sid in getattr(_sc, 'DURS', {}):
+            dur = _sc.DURS[sid]
         # extra breathing room for chart-heavy scenes
         if sid == 'savings':
             dur += 0.6
@@ -361,6 +422,22 @@ def do_audio():
     env = np.convolve(env, np.ones(k2) / k2, 'same')
     gain = 1.0 - 0.62 * env
     mus = mus * gain.astype(np.float32)
+    import scenes as _sc2
+    MOODS = getattr(_sc2, 'MOODS', {})
+    wins = [(MOODS[x['sid']], x['start'], x['dur']) for x in tl if x['sid'] in MOODS]
+    if wins:
+        g = np.ones(n, np.float32); fade = int(.6 * SR)
+        for kind, st, du in wins:
+            a_, b_ = int(st * SR), int((st + du) * SR)
+            g[a_:b_] = 0.05
+            if a_ > fade:
+                g[a_ - fade:a_] = np.minimum(g[a_ - fade:a_], np.linspace(1, 0.05, fade))
+            g[b_:b_ + fade] = np.minimum(g[b_:b_ + fade], np.linspace(0.05, 1, min(fade, len(g[b_:b_ + fade]))))
+        mus = mus * g
+        for kind, st, du in wins:
+            dm = drama(kind, du).astype(np.float32); a_ = int(st * SR)
+            dm *= (1 - 0.45 * env[a_:a_ + len(dm)][:len(dm)]) if len(env[a_:a_ + len(dm)]) == len(dm) else 1
+            mus[a_:a_ + len(dm)] += dm[:len(mus[a_:a_ + len(dm)])] * 1.6
     # fade in / out
     fi = int(1.5 * SR); mus[:fi] *= np.linspace(0, 1, fi)
     fo = int(3.0 * SR); mus[int(total * SR) - fo:int(total * SR)] *= np.linspace(1, 0, fo); mus[int(total * SR):] = 0
