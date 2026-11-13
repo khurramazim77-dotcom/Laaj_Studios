@@ -25,4 +25,4 @@ Educational content only, not financial advice. All numbers are illustrative; th
 
 **Files:** video .mp4 (1080p/30), `captions.srt` (upload as subtitles), `thumbnail.png` (1280x720), `Broke_to_Balance_50-30-20_Budget_Template.xlsx` (optional freebie for the description/pinned comment).
 
-**Credits:** All visuals are procedurally generated motion graphics (no third-party footage). Voice-over is synthetic (Pico TTS); music and sound effects are synthesized in code. Rebuild with `src/build.py`.
+**Credits:** All visuals are procedurally generated motion graphics (no third-party footage). Voice-over is synthetic (Kokoro neural TTS, voice am_michael; swap in your own recordings via narration/); music and sound effects are synthesized in code. Rebuild with `src/build.py`.

@@ -25,23 +25,45 @@ def sh(cmd, **kw):
 
 
 # ------------------------------------------------------------------ TTS
+_K = None
+VOICE = os.environ.get('B2B_VOICE', 'am_michael')
+KOKORO_DIR = os.environ.get('B2B_KOKORO', '/tmp/claude-0/-home-user-Laaj-Studios/864a7258-c942-549a-bb5d-f0b0a13dd3aa/scratchpad/kokoro_models')
+OWN_VOICE_DIR = os.path.join(OUT, 'narration')   # drop <seg_id>.wav/.mp3/.m4a here to use your own recordings
+
+
+def _kokoro():
+    global _K
+    if _K is None:
+        from kokoro_onnx import Kokoro
+        _K = Kokoro(f'{KOKORO_DIR}/kokoro-v1.0.onnx', f'{KOKORO_DIR}/voices-v1.0.bin')
+    return _K
+
+
 def tts(text, key):
-    h = hashlib.md5(text.encode()).hexdigest()[:10]
-    raw = f'{WORK}/tts/{key}_{h}_raw.wav'
-    proc = f'{WORK}/tts/{key}_{h}.wav'
+    """Narration for one segment. Uses your own recording if narration/<key>.* exists, else Kokoro neural TTS."""
     os.makedirs(f'{WORK}/tts', exist_ok=True)
-    if not os.path.exists(proc):
-        sh(['pico2wave', '-l', 'en-US', '-w', raw, text])
-        af = ('highpass=f=90,equalizer=f=220:t=q:w=1:g=2.5,equalizer=f=3400:t=q:w=1.2:g=2.5,'
-              'acompressor=threshold=-20dB:ratio=3:attack=5:release=90:makeup=3,aresample=44100,atempo=1.04')
-        sh(['ffmpeg', '-y', '-loglevel', 'error', '-i', raw, '-af', af, '-ac', '1', '-ar', str(SR), '-c:a', 'pcm_s16le', proc])
+    own = [f for f in (os.listdir(OWN_VOICE_DIR) if os.path.isdir(OWN_VOICE_DIR) else []) if f.rsplit('.', 1)[0] == key]
+    af = ('highpass=f=70,equalizer=f=200:t=q:w=1:g=1.5,equalizer=f=3200:t=q:w=1.2:g=1.5,'
+          'acompressor=threshold=-20dB:ratio=3:attack=5:release=90:makeup=3,aresample=44100')
+    if own:
+        src = os.path.join(OWN_VOICE_DIR, own[0])
+        proc = f'{WORK}/tts/own_{key}.wav'
+        sh(['ffmpeg', '-y', '-loglevel', 'error', '-i', src, '-af', af, '-ac', '1', '-ar', str(SR), '-c:a', 'pcm_s16le', proc])
+    else:
+        h = hashlib.md5((VOICE + text).encode()).hexdigest()[:10]
+        raw = f'{WORK}/tts/{key}_{VOICE}_{h}_raw.wav'
+        proc = f'{WORK}/tts/{key}_{VOICE}_{h}.wav'
+        if not os.path.exists(proc):
+            import soundfile as sf
+            samples, sr = _kokoro().create(text, voice=VOICE, speed=float(os.environ.get('B2B_SPEED', '1.0')), lang='en-us')
+            sf.write(raw, samples, sr)
+            sh(['ffmpeg', '-y', '-loglevel', 'error', '-i', raw, '-af', af, '-ac', '1', '-ar', str(SR), '-c:a', 'pcm_s16le', proc])
     sr, x = wavfile.read(proc)
     x = x.astype(np.float32) / 32768
-    # trim leading/trailing silence
-    thr = 0.012
+    thr = 0.010
     idx = np.where(np.abs(x) > thr)[0]
     if len(idx):
-        a, b = max(0, idx[0] - int(0.03 * SR)), min(len(x), idx[-1] + int(0.08 * SR))
+        a, b = max(0, idx[0] - int(0.03 * SR)), min(len(x), idx[-1] + int(0.10 * SR))
         x = x[a:b]
     return x
 
