@@ -26,3 +26,9 @@ Educational content only, not financial advice. All numbers are illustrative; th
 **Files:** video .mp4 (1080p/30), `captions.srt` (upload as subtitles), `thumbnail.png` (1280x720), `Broke_to_Balance_50-30-20_Budget_Template.xlsx` (optional freebie for the description/pinned comment).
 
 **Credits:** All visuals are procedurally generated motion graphics (no third-party footage). Voice-over is synthetic (Kokoro neural TTS, voice am_michael; swap in your own recordings via narration/); music and sound effects are synthesized in code. Rebuild with `src/build.py`.
+
+---
+## Short (vertical 9:16, 41s) — `Broke_to_Balance_Short_50-30-20.mp4`
+**Title:** The 50/30/20 Budget Rule in 40 Seconds #shorts
+**Description:** Broke by the 20th? Split every paycheck 50% needs, 30% wants, 20% savings. Full video on the channel: How to Budget Your Paycheck. Educational only, not financial advice; example numbers are illustrative.
+**Captions:** `shorts_captions.srt`. Rebuild: `python3 src/shorts_build.py audio && python3 src/shorts_build.py render`

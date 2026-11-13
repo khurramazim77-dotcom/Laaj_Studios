@@ -99,10 +99,25 @@ def sfx(kind):
         x = lfilter(b, a, x)
         env = np.sin(np.pi * np.clip(t / 0.6, 0, 1)) ** 2.2
         return 0.16 * x * env / (np.std(x) + 1e-6)
+    if kind == 'sting':
+        n = int(2.4 * SR); t = np.arange(n) / SR; y = np.zeros(n)
+        for i, f in enumerate((523.25, 659.25, 783.99, 1046.5)):
+            o = int(i * 0.09 * SR); tt = t[:n - o]
+            y[o:] += (np.sin(2 * np.pi * f * tt) + 0.4 * np.sin(2 * np.pi * 2 * f * tt)) * np.exp(-tt * 2.2) * 0.2
+        y += np.sin(2 * np.pi * 55 * t) * np.exp(-t * 3.5) * 0.45
+        return y * np.minimum(1, t / 0.004)
+    if kind == 'riser':
+        n = int(2.4 * SR); t = np.arange(n) / SR; u = t / 2.4
+        rng = np.random.default_rng(9)
+        b, a = butter(2, [500 / (SR / 2), 6000 / (SR / 2)], 'band')
+        nz = lfilter(b, a, rng.standard_normal(n)); nz /= np.std(nz) + 1e-6
+        f = 200 + 1800 * u ** 2
+        tone = np.sin(2 * np.pi * np.cumsum(f) / SR)
+        return (0.10 * nz + 0.07 * tone) * u ** 2.2
     raise KeyError(kind)
 
 
-def music(dur):
+def music(dur, drums_from=0.0, mel_from=0.0):
     """Warm lo-fi bed: Cmaj7 - Am7 - Fmaj7 - G6, 84 bpm. Pad + bass + soft pluck arp + gentle kick/hat."""
     n = int(dur * SR) + SR
     out = np.zeros(n, np.float32)
@@ -140,9 +155,25 @@ def music(dur):
             f = note(m + 12)
             arp[ss:] += (np.sin(2 * np.pi * f * tt) + 0.25 * np.sin(2 * np.pi * 2 * f * tt)) * np.exp(-tt * 9) * 0.05
         seg = pad + bass + arp
+        if bi * bar >= mel_from:
+            motifs = {0: [(0, 79), (3, 76), (4, 74), (6, 76)], 1: [(0, 76), (3, 72), (4, 74), (6, 72)],
+                      2: [(0, 77), (3, 81), (4, 79), (6, 77)], 3: [(0, 79), (3, 74), (4, 71), (6, 74)]}[bi % 4]
+            mel = np.zeros(L)
+            for step, m in motifs:
+                ss = int(step * beat / 2 * SR)
+                tt = np.arange(L - ss) / SR
+                f = note(m)
+                mel[ss:] += (np.sin(2 * np.pi * f * tt) + 0.35 * np.sin(2 * np.pi * 2 * f * tt) + 0.12 * np.sin(2 * np.pi * 3 * f * tt)) * np.exp(-tt * 5.5) * 0.06
+            for sb in (1.5, 3.5):
+                ss = int(sb * beat * SR)
+                tt = np.arange(L - ss) / SR
+                for m in tones[:3]:
+                    f = note(m)
+                    mel[ss:] += (np.sin(2 * np.pi * f * tt) + 0.5 * np.sin(2 * np.pi * 2 * f * tt)) * np.exp(-tt * 7) * 0.022
+            seg = seg + mel
         out[s0:s0 + L] += seg[:max(0, min(L, n - s0))].astype(np.float32)[:len(out[s0:s0 + L])]
         # drums
-        for bt in range(4):
+        for bt in (range(4) if bi * bar >= drums_from else []):
             ss = s0 + int(bt * beat * SR)
             if bt in (0, 2):
                 k = int(0.18 * SR); tt = np.arange(k) / SR
@@ -152,7 +183,7 @@ def music(dur):
                 k = int(0.12 * SR); tt = np.arange(k) / SR
                 sn = rng.standard_normal(k) * np.exp(-tt * 28) * 0.06
                 out[ss:ss + k] += sn[:max(0, min(k, n - ss))].astype(np.float32)[:len(out[ss:ss + k])]
-        for h in range(8):
+        for h in (range(8) if bi * bar >= drums_from else []):
             ss = s0 + int((h * beat / 2 + (beat / 4 if False else 0)) * SR)
             k = int(0.03 * SR)
             hh = rng.standard_normal(k) * np.exp(-np.arange(k) / (0.008 * SR)) * (0.035 if h % 2 else 0.02)
@@ -258,7 +289,9 @@ def do_audio():
     for t0, x in narr:
         i = int(t0 * SR)
         voice[i:i + len(x)] += x
-    mus = music(total + 1)
+    ts = [x['start'] for x in tl if x['sid'] == 'title'][0]
+    mus = music(total + 1, drums_from=ts, mel_from=ts)
+    sfx_ev += [(ts + 0.1, 'sting'), (ts - 2.3, 'riser')]
     # duck music under voice
     env = np.abs(voice)
     k = int(0.25 * SR)
