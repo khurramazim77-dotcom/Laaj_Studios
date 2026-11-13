@@ -1,0 +1,784 @@
+1
+00:00:03,399 --> 00:00:04,793
+Ladies and gentlemen,
+
+2
+00:00:04,793 --> 00:00:06,519
+welcome to the main event.
+
+3
+00:00:06,779 --> 00:00:07,926
+In the left corner,
+
+4
+00:00:07,926 --> 00:00:10,279
+going after the smallest balance first:
+
+5
+00:00:10,279 --> 00:00:11,366
+the Debt Snowball!
+
+6
+00:00:11,626 --> 00:00:13,006
+And in the right corner,
+
+7
+00:00:13,006 --> 00:00:15,192
+going after the highest interest rate:
+
+8
+00:00:15,192 --> 00:00:16,285
+the Debt Avalanche!
+
+9
+00:00:16,545 --> 00:00:18,589
+Two proven ways to crush debt.
+
+10
+00:00:18,589 --> 00:00:20,019
+One saves more money.
+
+11
+00:00:20,019 --> 00:00:22,063
+The other keeps you motivated.
+
+12
+00:00:22,063 --> 00:00:22,676
+Who wins?
+
+13
+00:00:22,676 --> 00:00:24,175
+Let's run the numbers.
+
+14
+00:00:25,575 --> 00:00:27,514
+Welcome back to Broke to Balance.
+
+15
+00:00:27,774 --> 00:00:28,528
+Quick note:
+
+16
+00:00:28,528 --> 00:00:29,899
+this is educational,
+
+17
+00:00:29,899 --> 00:00:31,955
+not personal financial advice.
+
+18
+00:00:31,955 --> 00:00:34,629
+And no payoff method works if you can't
+
+19
+00:00:34,629 --> 00:00:36,548
+cover your minimum payments,
+
+20
+00:00:36,548 --> 00:00:38,330
+so we're assuming you can.
+
+21
+00:00:38,330 --> 00:00:38,947
+Let's go.
+
+22
+00:00:40,347 --> 00:00:40,732
+First,
+
+23
+00:00:40,732 --> 00:00:44,063
+why does debt feel like running up a down escalator?
+
+24
+00:00:44,323 --> 00:00:44,879
+Interest.
+
+25
+00:00:44,879 --> 00:00:45,621
+Every month,
+
+26
+00:00:45,621 --> 00:00:47,599
+your lender charges a percentage
+
+27
+00:00:47,599 --> 00:00:48,959
+of what you still owe.
+
+28
+00:00:49,219 --> 00:00:53,952
+Say you owe $5,000 on a card at 24% APR,
+
+29
+00:00:53,952 --> 00:00:57,503
+and you pay only $125 a month.
+
+30
+00:00:57,763 --> 00:01:00,163
+It would take about eighty-two months,
+
+31
+00:01:00,163 --> 00:01:01,364
+almost seven years,
+
+32
+00:01:01,364 --> 00:01:03,512
+and cost roughly five thousand one
+
+33
+00:01:03,512 --> 00:01:05,660
+hundred sixty dollars in interest.
+
+34
+00:01:05,660 --> 00:01:07,619
+More than the original balance.
+
+35
+00:01:09,019 --> 00:01:11,191
+Let's watch interest in slow motion.
+
+36
+00:01:11,451 --> 00:01:14,968
+$5,000 at 24% APR is 2% a month.
+
+37
+00:01:14,968 --> 00:01:20,354
+That's $100 of interest in the first month alone.
+
+38
+00:01:20,614 --> 00:01:22,347
+Your minimum payment is one
+
+39
+00:01:22,347 --> 00:01:24,143
+hundred twenty-five dollars.
+
+40
+00:01:24,143 --> 00:01:27,479
+So only twenty-five of it actually reduces the debt.
+
+41
+00:01:27,739 --> 00:01:29,658
+That's why paying a little extra,
+
+42
+00:01:29,658 --> 00:01:31,054
+aimed at the right debt,
+
+43
+00:01:31,054 --> 00:01:32,682
+makes such a big difference.
+
+44
+00:01:34,082 --> 00:01:35,322
+Here's our test case:
+
+45
+00:01:35,322 --> 00:01:36,030
+three debts,
+
+46
+00:01:36,030 --> 00:01:38,745
+totaling eight thousand three hundred dollars.
+
+47
+00:01:39,005 --> 00:01:39,878
+A store card:
+
+48
+00:01:39,878 --> 00:01:42,565
+eight hundred dollars at twelve percent.
+
+49
+00:01:42,565 --> 00:01:43,639
+A personal loan:
+
+50
+00:01:43,639 --> 00:01:46,259
+twenty-five hundred at fifteen percent.
+
+51
+00:01:46,259 --> 00:01:47,468
+And a credit card:
+
+52
+00:01:47,468 --> 00:01:49,953
+five thousand at twenty-four percent.
+
+53
+00:01:50,213 --> 00:01:52,316
+The minimum payments add up to two
+
+54
+00:01:52,316 --> 00:01:54,233
+hundred thirty dollars a month.
+
+55
+00:01:54,233 --> 00:01:56,274
+We'll add an extra three hundred,
+
+56
+00:01:56,274 --> 00:01:58,439
+for a total of five hundred thirty.
+
+57
+00:01:58,699 --> 00:02:01,098
+Both methods follow the same rules.
+
+58
+00:02:01,098 --> 00:02:03,154
+Pay the minimum on everything.
+
+59
+00:02:03,154 --> 00:02:06,102
+Send every extra dollar to one target debt.
+
+60
+00:02:06,102 --> 00:02:07,747
+And when a debt is gone,
+
+61
+00:02:07,747 --> 00:02:10,146
+roll its payment into the next one.
+
+62
+00:02:11,546 --> 00:02:14,416
+Here's the secret engine behind both methods:
+
+63
+00:02:14,416 --> 00:02:15,309
+the roll-over.
+
+64
+00:02:15,569 --> 00:02:16,589
+In the snowball,
+
+65
+00:02:16,589 --> 00:02:18,818
+the first target gets three hundred
+
+66
+00:02:18,818 --> 00:02:20,601
+twenty-five dollars a month.
+
+67
+00:02:20,601 --> 00:02:21,557
+When it's gone,
+
+68
+00:02:21,557 --> 00:02:23,849
+that payment plus the loan's minimum
+
+69
+00:02:23,849 --> 00:02:25,505
+becomes four hundred five.
+
+70
+00:02:25,505 --> 00:02:27,544
+Then the last debt gets the full
+
+71
+00:02:27,544 --> 00:02:28,817
+five hundred thirty.
+
+72
+00:02:29,077 --> 00:02:32,128
+The avalanche works the same way:
+
+73
+00:02:32,128 --> 00:02:34,624
+$425, then $505, then $530.
+
+74
+00:02:34,884 --> 00:02:37,630
+Payments snowball in size as debts disappear.
+
+75
+00:02:37,630 --> 00:02:39,034
+That's the whole trick.
+
+76
+00:02:40,434 --> 00:02:42,537
+In the left corner, the Debt Snowball.
+
+77
+00:02:42,797 --> 00:02:44,399
+You list your debts from the
+
+78
+00:02:44,399 --> 00:02:46,230
+smallest balance to the largest,
+
+79
+00:02:46,230 --> 00:02:47,776
+ignoring the interest rate.
+
+80
+00:02:48,036 --> 00:02:48,768
+In our test,
+
+81
+00:02:48,768 --> 00:02:50,722
+that means the store card first,
+
+82
+00:02:50,722 --> 00:02:52,126
+then the personal loan,
+
+83
+00:02:52,126 --> 00:02:53,408
+then the credit card.
+
+84
+00:02:53,668 --> 00:02:55,103
+Why do people love it?
+
+85
+00:02:55,103 --> 00:02:55,821
+Quick wins.
+
+86
+00:02:55,821 --> 00:02:58,104
+You knock out your first debt fast,
+
+87
+00:02:58,104 --> 00:02:59,995
+and each win builds momentum,
+
+88
+00:02:59,995 --> 00:03:02,147
+like a snowball rolling downhill.
+
+89
+00:03:03,547 --> 00:03:05,772
+In the right corner, the Debt Avalanche.
+
+90
+00:03:06,032 --> 00:03:08,081
+You list your debts from the highest
+
+91
+00:03:08,081 --> 00:03:09,675
+interest rate to the lowest,
+
+92
+00:03:09,675 --> 00:03:10,870
+ignoring the balance.
+
+93
+00:03:11,130 --> 00:03:11,896
+In our test:
+
+94
+00:03:11,896 --> 00:03:14,767
+the credit card at twenty-four percent first,
+
+95
+00:03:14,767 --> 00:03:16,363
+then the loan at fifteen,
+
+96
+00:03:16,363 --> 00:03:18,277
+then the store card at twelve.
+
+97
+00:03:18,537 --> 00:03:19,989
+Why do people pick it?
+
+98
+00:03:19,989 --> 00:03:20,319
+Math.
+
+99
+00:03:20,319 --> 00:03:22,892
+Attacking the most expensive debt first
+
+100
+00:03:22,892 --> 00:03:25,136
+means you pay less total interest.
+
+101
+00:03:32,936 --> 00:03:33,888
+And they're off.
+
+102
+00:03:33,888 --> 00:03:35,912
+Both fighters put in the same five
+
+103
+00:03:35,912 --> 00:03:37,995
+hundred thirty dollars every month.
+
+104
+00:03:38,255 --> 00:03:41,358
+The snowball clears the store card by month three,
+
+105
+00:03:41,358 --> 00:03:43,034
+and the loan by month nine.
+
+106
+00:03:43,294 --> 00:03:45,550
+But the avalanche is attacking the card
+
+107
+00:03:45,550 --> 00:03:47,055
+with the highest interest,
+
+108
+00:03:47,055 --> 00:03:49,138
+so its interest bill shrinks faster.
+
+109
+00:03:49,398 --> 00:03:50,514
+By month fourteen,
+
+110
+00:03:50,514 --> 00:03:52,994
+the avalanche has wiped out the biggest,
+
+111
+00:03:52,994 --> 00:03:53,924
+costliest debt.
+
+112
+00:03:53,924 --> 00:03:54,544
+Meanwhile,
+
+113
+00:03:54,544 --> 00:03:56,653
+the snowball is still carrying it.
+
+114
+00:03:56,913 --> 00:03:58,285
+And at the finish line...
+
+115
+00:03:59,685 --> 00:04:00,533
+Final scores.
+
+116
+00:04:00,533 --> 00:04:03,860
+Both methods leave you debt-free in month nineteen.
+
+117
+00:04:04,120 --> 00:04:06,546
+The snowball paid about fifteen hundred
+
+118
+00:04:06,546 --> 00:04:08,474
+eighty-six dollars in interest.
+
+119
+00:04:08,474 --> 00:04:11,645
+The avalanche paid about twelve hundred ninety-six.
+
+120
+00:04:11,905 --> 00:04:13,830
+That's roughly two hundred ninety
+
+121
+00:04:13,830 --> 00:04:15,639
+dollars saved by the avalanche.
+
+122
+00:04:15,899 --> 00:04:17,422
+But look at the first win.
+
+123
+00:04:17,422 --> 00:04:20,292
+The snowball cleared a whole debt in month three.
+
+124
+00:04:20,292 --> 00:04:21,874
+The avalanche took fourteen
+
+125
+00:04:21,874 --> 00:04:23,397
+months to clear its first.
+
+126
+00:04:23,657 --> 00:04:25,588
+So the avalanche wins on money,
+
+127
+00:04:25,588 --> 00:04:28,827
+and the snowball wins on speed to the first victory.
+
+128
+00:04:29,087 --> 00:04:32,087
+And if your interest rates are all close together,
+
+129
+00:04:32,087 --> 00:04:33,227
+the savings shrink,
+
+130
+00:04:33,227 --> 00:04:36,047
+so the snowball's quick wins might matter more.
+
+131
+00:04:44,047 --> 00:04:45,548
+So which one should you choose?
+
+132
+00:04:45,808 --> 00:04:48,789
+Choose the avalanche if you're motivated by numbers,
+
+133
+00:04:48,789 --> 00:04:51,024
+your interest rates are very different,
+
+134
+00:04:51,024 --> 00:04:53,718
+and you can stay disciplined for the long haul.
+
+135
+00:04:53,978 --> 00:04:56,033
+Choose the snowball if you need
+
+136
+00:04:56,033 --> 00:04:57,955
+early wins to stay motivated,
+
+137
+00:04:57,955 --> 00:05:00,010
+or if you've quit plans before.
+
+138
+00:05:00,270 --> 00:05:01,623
+You can even mix them:
+
+139
+00:05:01,623 --> 00:05:04,021
+start with a tiny debt for a quick win,
+
+140
+00:05:04,021 --> 00:05:05,988
+then switch to the highest rate.
+
+141
+00:05:06,248 --> 00:05:09,125
+The best method is the one you'll actually finish.
+
+142
+00:05:10,525 --> 00:05:12,416
+A few ways to speed things up.
+
+143
+00:05:12,676 --> 00:05:15,487
+Call your lenders and ask for a lower rate,
+
+144
+00:05:15,487 --> 00:05:17,578
+or look into a balance transfer,
+
+145
+00:05:17,578 --> 00:05:20,847
+but read the fees and promotional terms carefully.
+
+146
+00:05:21,107 --> 00:05:22,071
+Send windfalls,
+
+147
+00:05:22,071 --> 00:05:23,936
+like tax refunds and bonuses,
+
+148
+00:05:23,936 --> 00:05:25,736
+straight to the target debt.
+
+149
+00:05:25,996 --> 00:05:28,151
+Pick up a temporary side income,
+
+150
+00:05:28,151 --> 00:05:30,440
+and give every extra dollar a job.
+
+151
+00:05:30,700 --> 00:05:32,206
+And stop adding new debt.
+
+152
+00:05:32,206 --> 00:05:34,012
+You can't empty a bathtub with
+
+153
+00:05:34,012 --> 00:05:35,337
+the tap still running.
+
+154
+00:05:36,737 --> 00:05:38,949
+Where does this fit in the fifty, thirty,
+
+155
+00:05:38,949 --> 00:05:39,704
+twenty budget?
+
+156
+00:05:39,964 --> 00:05:42,989
+Debt payoff lives in your twenty percent bucket,
+
+157
+00:05:42,989 --> 00:05:44,123
+alongside savings.
+
+158
+00:05:44,383 --> 00:05:44,775
+First,
+
+159
+00:05:44,775 --> 00:05:46,867
+build the starter emergency fund
+
+160
+00:05:46,867 --> 00:05:48,174
+from our last video,
+
+161
+00:05:48,174 --> 00:05:51,442
+so one surprise doesn't push you back onto a card.
+
+162
+00:05:51,702 --> 00:05:54,017
+Then point the rest at your target debt,
+
+163
+00:05:54,017 --> 00:05:56,042
+and automate the payment on payday.
+
+164
+00:05:56,302 --> 00:05:57,870
+And once the debt is gone,
+
+165
+00:05:57,870 --> 00:06:01,006
+redirect that same payment to savings and investing.
+
+166
+00:06:01,006 --> 00:06:03,418
+You already know how to live without it.
+
+167
+00:06:04,818 --> 00:06:06,434
+Four mistakes to avoid.
+
+168
+00:06:06,694 --> 00:06:06,922
+One:
+
+169
+00:06:06,922 --> 00:06:09,720
+skipping the minimum payments on the other debts.
+
+170
+00:06:09,720 --> 00:06:12,518
+That triggers late fees and can hurt your credit.
+
+171
+00:06:12,778 --> 00:06:13,060
+Two:
+
+172
+00:06:13,060 --> 00:06:15,388
+having no starter emergency fund,
+
+173
+00:06:15,388 --> 00:06:18,280
+so every surprise lands back on the card.
+
+174
+00:06:18,540 --> 00:06:18,920
+Three:
+
+175
+00:06:18,920 --> 00:06:21,266
+ignoring interest rates entirely when
+
+176
+00:06:21,266 --> 00:06:23,104
+the gap between them is huge.
+
+177
+00:06:23,364 --> 00:06:23,930
+And four:
+
+178
+00:06:23,930 --> 00:06:25,755
+quitting after one bad month.
+
+179
+00:06:25,755 --> 00:06:27,956
+A slip doesn't erase your progress.
+
+180
+00:06:29,356 --> 00:06:30,363
+Let's recap.
+
+181
+00:06:30,623 --> 00:06:31,707
+List your debts.
+
+182
+00:06:31,707 --> 00:06:34,281
+Snowball means smallest balance first.
+
+183
+00:06:34,281 --> 00:06:36,653
+Avalanche means highest rate first.
+
+184
+00:06:36,913 --> 00:06:38,756
+Pay the minimum on everything,
+
+185
+00:06:38,756 --> 00:06:41,337
+and send every extra dollar to the target.
+
+186
+00:06:41,597 --> 00:06:43,779
+The avalanche saves more interest,
+
+187
+00:06:43,779 --> 00:06:45,962
+the snowball delivers faster wins,
+
+188
+00:06:45,962 --> 00:06:48,658
+and the best method is the one you finish.
+
+189
+00:06:48,918 --> 00:06:51,312
+Next time, we decode your credit score:
+
+190
+00:06:51,312 --> 00:06:53,645
+the five factors that actually matter.
+
+191
+00:06:53,905 --> 00:06:55,462
+If this helped, subscribe,
+
+192
+00:06:55,462 --> 00:06:57,140
+and tell me in the comments:
+
+193
+00:06:57,140 --> 00:06:58,458
+snowball or avalanche?
+
+194
+00:06:58,718 --> 00:07:01,233
+This video is for education only and
+
+195
+00:07:01,233 --> 00:07:02,839
+isn't financial advice.
+
+196
+00:07:02,839 --> 00:07:04,097
+See you next time.
+

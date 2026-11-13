@@ -166,5 +166,149 @@
   "query": "counting money cash",
   "duration": 8,
   "size": "1280x720"
+ },
+ "snow_0": {
+  "pixabay_id": 25477,
+  "page": "https://pixabay.com/videos/id-25477/",
+  "user": "luc_toutsimplement",
+  "query": "snowy mountain winter",
+  "duration": 19,
+  "size": "1922x1080"
+ },
+ "snow_1": {
+  "pixabay_id": 348057,
+  "page": "https://pixabay.com/videos/id-348057/",
+  "user": "Gylfi",
+  "query": "snowy mountain winter",
+  "duration": 22,
+  "size": "2560x1440"
+ },
+ "snow_2": {
+  "pixabay_id": 200449,
+  "page": "https://pixabay.com/videos/id-200449/",
+  "user": "Frabull",
+  "query": "snowy mountain winter",
+  "duration": 33,
+  "size": "2560x1440"
+ },
+ "aval_0": {
+  "pixabay_id": 20579,
+  "page": "https://pixabay.com/videos/id-20579/",
+  "user": "Hans",
+  "query": "avalanche snow mountain",
+  "duration": 13,
+  "size": "2560x1440"
+ },
+ "aval_1": {
+  "pixabay_id": 277097,
+  "page": "https://pixabay.com/videos/id-277097/",
+  "user": "vecax",
+  "query": "avalanche snow mountain",
+  "duration": 18,
+  "size": "1280x720"
+ },
+ "aval_2": {
+  "pixabay_id": 25477,
+  "page": "https://pixabay.com/videos/id-25477/",
+  "user": "luc_toutsimplement",
+  "query": "avalanche snow mountain",
+  "duration": 19,
+  "size": "1922x1080"
+ },
+ "cardpay_0": {
+  "pixabay_id": 59139,
+  "page": "https://pixabay.com/videos/id-59139/",
+  "user": "Hassas_Arts",
+  "query": "credit card payment",
+  "duration": 20,
+  "size": "1280x720"
+ },
+ "cardpay_1": {
+  "pixabay_id": 50622,
+  "page": "https://pixabay.com/videos/id-50622/",
+  "user": "Hassas_Arts",
+  "query": "credit card payment",
+  "duration": 20,
+  "size": "1280x720"
+ },
+ "cardpay_2": {
+  "pixabay_id": 91679,
+  "page": "https://pixabay.com/videos/id-91679/",
+  "user": "NickyPe",
+  "query": "credit card payment",
+  "duration": 27,
+  "size": "1280x720"
+ },
+ "bills_0": {
+  "pixabay_id": 232538,
+  "page": "https://pixabay.com/videos/id-232538/",
+  "user": "Darioguzben",
+  "query": "paying bills desk paperwork",
+  "duration": 12,
+  "size": "1280x720"
+ },
+ "bills_1": {
+  "pixabay_id": 18244,
+  "page": "https://pixabay.com/videos/id-18244/",
+  "user": "Lirofilm",
+  "query": "paying bills desk paperwork",
+  "duration": 20,
+  "size": "1280x720"
+ },
+ "bills_2": {
+  "pixabay_id": 1028,
+  "page": "https://pixabay.com/videos/id-1028/",
+  "user": "Coverr-Free-Footage",
+  "query": "paying bills desk paperwork",
+  "duration": 12,
+  "size": "1280x720"
+ },
+ "calc_0": {
+  "pixabay_id": 209854,
+  "page": "https://pixabay.com/videos/id-209854/",
+  "user": "conte_public",
+  "query": "calculator",
+  "duration": 17,
+  "size": "2560x1440"
+ },
+ "calc_1": {
+  "pixabay_id": 59139,
+  "page": "https://pixabay.com/videos/id-59139/",
+  "user": "Hassas_Arts",
+  "query": "calculator",
+  "duration": 20,
+  "size": "1280x720"
+ },
+ "calc_2": {
+  "pixabay_id": 174006,
+  "page": "https://pixabay.com/videos/id-174006/",
+  "user": "Amorn_mimi",
+  "query": "calculator",
+  "duration": 9,
+  "size": "2560x1440"
+ },
+ "ring_0": {
+  "pixabay_id": 125771,
+  "page": "https://pixabay.com/videos/id-125771/",
+  "user": "Kmeel_com",
+  "query": "boxing ring",
+  "duration": 13,
+  "size": "2562x1439"
+ },
+ "ring_1": {
+  "pixabay_id": 52101,
+  "page": "https://pixabay.com/videos/id-52101/",
+  "user": "FITAHOLICLIFE",
+  "query": "boxing ring",
+  "duration": 9,
+  "size": "2732x1440"
+ },
+ "ring_2": {
+  "pixabay_id": 20112,
+  "page": "https://pixabay.com/videos/id-20112/",
+  "user": "serrats_ana",
+  "query": "boxing ring",
+  "duration": 13,
+  "size": "1280x720"
  }
 }

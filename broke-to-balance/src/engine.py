@@ -190,6 +190,8 @@ def parse_ref(ref, S):
         return float(ref)
     if '+' in ref:
         k, o = ref.split('+'); return S[k][0] + float(o)
+    if '-' in ref and ref.split('-')[0] in S:
+        k, o = ref.split('-'); return S[k][0] - float(o)
     return S[ref][0]
 
 
