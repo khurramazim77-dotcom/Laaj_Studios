@@ -13,7 +13,9 @@ from scipy.signal import butter, lfilter
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
-OUT = os.path.dirname(HERE)
+OUT = os.environ.get('B2B_OUT', os.path.dirname(HERE))
+FINAL_NAME = os.environ.get('B2B_FINAL', 'Broke_to_Balance_How_to_Budget_Your_Paycheck.mp4')
+MUSIC_VARIANT = int(os.environ.get('B2B_MUSIC', '0'))
 WORK = os.environ.get('B2B_WORK', '/tmp/claude-0/-home-user-Laaj-Studios/864a7258-c942-549a-bb5d-f0b0a13dd3aa/scratchpad/b2b')
 os.makedirs(WORK, exist_ok=True)
 SR = 44100
@@ -169,9 +171,15 @@ def music(dur, drums_from=0.0, mel_from=0.0):
     """Warm lo-fi bed: Cmaj7 - Am7 - Fmaj7 - G6, 84 bpm. Pad + bass + soft pluck arp + gentle kick/hat."""
     n = int(dur * SR) + SR
     out = np.zeros(n, np.float32)
-    bpm = 84; beat = 60 / bpm; bar = 4 * beat
+    bpm = [84, 92, 78, 88, 82, 96][MUSIC_VARIANT % 6]; beat = 60 / bpm; bar = 4 * beat
     note = lambda m: 440 * 2 ** ((m - 69) / 12)
-    chords = [(48, [60, 64, 67, 71]), (45, [57, 60, 64, 67]), (53, [60, 65, 69, 72]), (55, [59, 62, 67, 71])]
+    CH = [[(48, [60, 64, 67, 71]), (45, [57, 60, 64, 67]), (53, [60, 65, 69, 72]), (55, [59, 62, 67, 71])],
+          [(45, [57, 60, 64, 67]), (41, [57, 60, 65, 69]), (48, [60, 64, 67, 71]), (43, [59, 62, 67, 71])],
+          [(50, [57, 60, 62, 65]), (43, [59, 62, 65, 67]), (48, [60, 64, 67, 71]), (45, [57, 60, 64, 67])],
+          [(53, [60, 65, 69, 72]), (55, [59, 62, 67, 71]), (45, [57, 60, 64, 67]), (50, [57, 60, 62, 65])],
+          [(48, [60, 64, 67, 71]), (43, [59, 62, 67, 71]), (45, [57, 60, 64, 67]), (53, [60, 65, 69, 72])],
+          [(45, [57, 60, 64, 67]), (50, [57, 60, 62, 65]), (53, [60, 65, 69, 72]), (55, [59, 62, 67, 71])]]
+    chords = CH[MUSIC_VARIANT % 6]
     nb = int(dur / bar) + 2
     rng = np.random.default_rng(5)
     for bi in range(nb):
@@ -204,8 +212,12 @@ def music(dur, drums_from=0.0, mel_from=0.0):
             arp[ss:] += (np.sin(2 * np.pi * f * tt) + 0.25 * np.sin(2 * np.pi * 2 * f * tt)) * np.exp(-tt * 9) * 0.05
         seg = pad + bass + arp
         if bi * bar >= mel_from:
-            motifs = {0: [(0, 79), (3, 76), (4, 74), (6, 76)], 1: [(0, 76), (3, 72), (4, 74), (6, 72)],
-                      2: [(0, 77), (3, 81), (4, 79), (6, 77)], 3: [(0, 79), (3, 74), (4, 71), (6, 74)]}[bi % 4]
+            if MUSIC_VARIANT % 6 == 0:
+                motifs = {0: [(0, 79), (3, 76), (4, 74), (6, 76)], 1: [(0, 76), (3, 72), (4, 74), (6, 72)],
+                          2: [(0, 77), (3, 81), (4, 79), (6, 77)], 3: [(0, 79), (3, 74), (4, 71), (6, 74)]}[bi % 4]
+            else:
+                tn = [m + 12 if m < 64 else m for m in tones]
+                motifs = [(0, tn[2]), (3, tn[1]), (4, tn[3] if bi % 2 else tn[0]), (6, tn[1])]
             mel = np.zeros(L)
             for step, m in motifs:
                 ss = int(step * beat / 2 * SR)
@@ -272,7 +284,7 @@ def build_timeline():
         for et, kind in events(sid, S):
             sfx_ev.append((cur + et, kind))
         if si < len(SCRIPT) - 1:
-            sfx_ev.append((cur + dur - XF * 0.85, TRANS_SFX[TRANS[si]]))
+            sfx_ev.append((cur + dur - XF * 0.85, TRANS_SFX[TRANS[si % len(TRANS)]]))
         cur += dur
     total = cur
     return tl, total, narr_events, caps, sfx_ev
@@ -365,7 +377,7 @@ def do_audio():
     chunks = cap_chunks(caps)
     PUNCH = {'thud', 'cash', 'coin', 'coin2', 'boom', 'sting', 'sparkle'}
     pulses = sorted(t for t, k in sfx_ev if k in PUNCH)
-    json.dump(dict(tl=tl, total=total, caps=chunks, pulses=pulses, trans=TRANS), open(f'{WORK}/timeline.json', 'w'))
+    json.dump(dict(tl=tl, total=total, caps=chunks, pulses=pulses, trans=[TRANS[i % len(TRANS)] for i in range(len(tl))]), open(f'{WORK}/timeline.json', 'w'))
     with open(f'{OUT}/captions.srt', 'w') as f:
         for i, (a, b, txt) in enumerate(chunks, 1):
             f.write(f'{i}\n{srt_time(a)} --> {srt_time(b)}\n{txt}\n\n')
@@ -499,7 +511,7 @@ def do_render():
         for j in range(len(jobs)):
             f.write(f"file 'chunk_{j:02d}.mp4'\n")
     sh(['ffmpeg', '-y', '-loglevel', 'error', '-f', 'concat', '-safe', '0', '-i', f'{WORK}/list.txt', '-c', 'copy', f'{WORK}/video_silent.mp4'])
-    final = f'{OUT}/Broke_to_Balance_How_to_Budget_Your_Paycheck.mp4'
+    final = f'{OUT}/{FINAL_NAME}'
     sh(['ffmpeg', '-y', '-loglevel', 'error', '-i', f'{WORK}/video_silent.mp4', '-i', f'{WORK}/mix.wav', '-c:v', 'copy', '-c:a', 'aac', '-b:a', '192k',
         '-shortest', '-movflags', '+faststart', final])
     print('wrote', final)
