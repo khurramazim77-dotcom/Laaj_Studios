@@ -328,7 +328,7 @@ def el_table(img, t, S, el, R):
 def el_counter(img, t, S, el, R):
     x0, y0, x1, y1 = el.get('region', CONTENT); a0 = R(el['at']); f = el.get('fmt', 'money'); size = el.get('size', 150)
     p = e_out(dprog(t, a0, el.get('dur', 1.4))) if el.get('dur', 1.4) > 0 else 1
-    v = lerp(el.get('from', 0), el['to'], p); cx, cy = (x0 + x1) / 2, (y0 + y1) / 2
+    v = lerp(el.get('from', 0), el.get('to', 0), p); cx, cy = (x0 + x1) / 2, (y0 + y1) / 2
     if el.get('label'):
         sub(img, (cx, cy - size * .75), el['label'], 32, 'Bold')
     col = el.get('color', GREEN)
