@@ -17,7 +17,9 @@ OUT = os.path.dirname(HERE)
 WORK = os.environ.get('B2B_WORK', '/tmp/claude-0/-home-user-Laaj-Studios/864a7258-c942-549a-bb5d-f0b0a13dd3aa/scratchpad/b2b')
 os.makedirs(WORK, exist_ok=True)
 SR = 44100
-XF = 0.5
+XF = 0.42
+TRANS = ['zoom', 'slide', 'wipe', 'flash', 'slide', 'zoom', 'wipe', 'flash', 'zoom']
+TRANS_SFX = {'zoom': 'boom', 'slide': 'slide', 'wipe': 'whip', 'flash': 'sparkle', 'fade': 'tick'}
 
 
 def sh(cmd, **kw):
@@ -114,6 +116,52 @@ def sfx(kind):
         f = 200 + 1800 * u ** 2
         tone = np.sin(2 * np.pi * np.cumsum(f) / SR)
         return (0.10 * nz + 0.07 * tone) * u ** 2.2
+    rng = np.random.default_rng(sum(map(ord, kind)))
+    def band(x, lo, hi):
+        b, a = butter(2, [lo / (SR / 2), hi / (SR / 2)], 'band'); return lfilter(b, a, x)
+    if kind in ('tick', 'tick2'):
+        n = int(0.04 * SR); t = np.arange(n) / SR; f = 1900 if kind == 'tick' else 1150
+        return 0.3 * (np.sin(2 * np.pi * f * t) * np.exp(-t * 150) * 0.8 + band(rng.standard_normal(n), 2500, 9000) * np.exp(-t * 200) * 0.25)
+    if kind == 'slide':
+        n = int(0.32 * SR); t = np.arange(n) / SR
+        x = band(rng.standard_normal(n), 700, 5200); x /= np.std(x) + 1e-6
+        return 0.10 * x * np.minimum(1, t / 0.04) * np.exp(-t * 11)
+    if kind == 'whip':
+        n = int(0.2 * SR); t = np.arange(n) / SR
+        x = band(rng.standard_normal(n), 2500, 11000); x /= np.std(x) + 1e-6
+        return 0.12 * x * np.sin(np.pi * np.clip(t / 0.2, 0, 1)) ** 1.5
+    if kind == 'thud':
+        n = int(0.45 * SR); t = np.arange(n) / SR
+        f = 58 + 70 * np.exp(-t * 28)
+        y = np.sin(2 * np.pi * np.cumsum(f) / SR) * np.exp(-t * 8) * 0.62
+        y += band(rng.standard_normal(n), 120, 900) * np.exp(-t * 70) * 0.10
+        return y * np.minimum(1, t / 0.002)
+    if kind == 'boom':
+        n = int(1.1 * SR); t = np.arange(n) / SR
+        b, a = butter(2, 320 / (SR / 2), 'low'); nz = lfilter(b, a, rng.standard_normal(n)); nz /= np.std(nz) + 1e-6
+        return (0.16 * nz * np.exp(-t * 3.2) + np.sin(2 * np.pi * 46 * t) * np.exp(-t * 3.6) * 0.5) * np.minimum(1, t / 0.003)
+    if kind == 'sparkle':
+        n = int(1.2 * SR); t = np.arange(n) / SR; y = np.zeros(n)
+        for i, f in enumerate((1318.5, 1568, 1760, 2093, 2349, 2637, 3136)):
+            o = int(i * 0.05 * SR); tt = t[:n - o]
+            y[o:] += (np.sin(2 * np.pi * f * tt) + 0.3 * np.sin(2 * np.pi * 2 * f * tt)) * np.exp(-tt * 7) * 0.09
+        return y
+    if kind in ('coin', 'coin2'):
+        n = int(0.5 * SR); t = np.arange(n) / SR; f1, f2 = (2349, 3136) if kind == 'coin' else (2637, 3520)
+        y = np.sin(2 * np.pi * f1 * t) * np.exp(-t * 24) * 0.7
+        o = int(0.07 * SR); tt = t[:n - o]
+        y[o:] += np.sin(2 * np.pi * f2 * tt) * np.exp(-tt * 14) * 0.9 + np.sin(2 * np.pi * f2 * 2.76 * tt) * np.exp(-tt * 30) * 0.25
+        return 0.17 * y * np.minimum(1, t / 0.002)
+    if kind == 'cash':
+        n = int(1.2 * SR); t = np.arange(n) / SR
+        y = band(rng.standard_normal(n), 400, 2600) * np.exp(-t * 45) * 0.18 + np.sin(2 * np.pi * 230 * t) * np.exp(-t * 35) * 0.28
+        o = int(0.06 * SR); tt = t[:n - o]
+        y[o:] += (np.sin(2 * np.pi * 1568 * tt) + 0.6 * np.sin(2 * np.pi * 2349 * tt) + 0.35 * np.sin(2 * np.pi * 3136 * tt)) * np.exp(-tt * 4.5) * 0.17
+        return y
+    if kind in ('bubble', 'bubble2'):
+        n = int(0.16 * SR); t = np.arange(n) / SR; u = t / 0.16
+        f = (330 + 620 * u ** 0.7) if kind == 'bubble' else (560 + 980 * u ** 0.7)
+        return 0.26 * np.sin(2 * np.pi * np.cumsum(f) / SR) * np.sin(np.pi * np.clip(u, 0, 1)) ** 0.8
     raise KeyError(kind)
 
 
@@ -204,7 +252,7 @@ def build_timeline():
     sfx_ev = []
     for si, (sid, segs) in enumerate(SCRIPT):
         S = {}
-        lead = 0.9 if si == 0 else 0.7
+        lead = 0.9 if si == 0 else 0.5
         t = lead
         clips = []
         for (k, say, show) in segs:
@@ -212,8 +260,8 @@ def build_timeline():
             d = len(x) / SR
             S[k] = (t, d)
             clips.append((k, t, x, show or say))
-            t += d + 0.34
-        dur = t - 0.34 + (1.3 if si < len(SCRIPT) - 1 else 2.2)
+            t += d + 0.26
+        dur = t - 0.26 + (0.9 if si < len(SCRIPT) - 1 else 2.2)
         # extra breathing room for chart-heavy scenes
         if sid == 'savings':
             dur += 0.6
@@ -224,7 +272,7 @@ def build_timeline():
         for et, kind in events(sid, S):
             sfx_ev.append((cur + et, kind))
         if si < len(SCRIPT) - 1:
-            sfx_ev.append((cur + dur - XF * 0.9, 'whoosh'))
+            sfx_ev.append((cur + dur - XF * 0.85, TRANS_SFX[TRANS[si]]))
         cur += dur
     total = cur
     return tl, total, narr_events, caps, sfx_ev
@@ -315,7 +363,9 @@ def do_audio():
     wavfile.write(f'{WORK}/mix_raw.wav', SR, (np.clip(mix, -1, 1) * 32767).astype(np.int16))
     sh(['ffmpeg', '-y', '-loglevel', 'error', '-i', f'{WORK}/mix_raw.wav', '-af', 'loudnorm=I=-16:TP=-1.5:LRA=11', '-ar', '44100', '-ac', '2', f'{WORK}/mix.wav'])
     chunks = cap_chunks(caps)
-    json.dump(dict(tl=tl, total=total, caps=chunks), open(f'{WORK}/timeline.json', 'w'))
+    PUNCH = {'thud', 'cash', 'coin', 'coin2', 'boom', 'sting', 'sparkle'}
+    pulses = sorted(t for t, k in sfx_ev if k in PUNCH)
+    json.dump(dict(tl=tl, total=total, caps=chunks, pulses=pulses, trans=TRANS), open(f'{WORK}/timeline.json', 'w'))
     with open(f'{OUT}/captions.srt', 'w') as f:
         for i, (a, b, txt) in enumerate(chunks, 1):
             f.write(f'{i}\n{srt_time(a)} --> {srt_time(b)}\n{txt}\n\n')
@@ -337,10 +387,60 @@ def load():
     return _T
 
 
+def zoom_img(im, z):
+    from PIL import Image
+    if z <= 1.0005:
+        return im
+    w_, h_ = im.size
+    cw, ch = w_ / z, h_ / z
+    x0, y0 = (w_ - cw) / 2, (h_ - ch) / 2
+    return im.resize((w_, h_), Image.BILINEAR, box=(x0, y0, x0 + cw, y0 + ch))
+
+
+def scene_frame(idx, t, T):
+    from PIL import Image
+    from lib import W, H, clamp
+    import scenes
+    s = T['tl'][idx]
+    S = {k: tuple(v) for k, v in s['S'].items()}
+    lt = t - s['start']
+    img = Image.new('RGBA', (W, H), (0, 0, 0, 255))
+    scenes.RENDER[s['sid']](img, lt, S)
+    z = 1 + 0.05 * clamp(lt / s['dur'])                    # slow push-in
+    for te in T['pulses']:                                   # beat "punch" on impactful sounds
+        dt = t - te
+        if 0 <= dt < 0.7:
+            z += 0.022 * math.exp(-dt / 0.13)
+    return zoom_img(img, z)
+
+
+def transition(a, b, p, kind):
+    from PIL import Image
+    from lib import W, H, e_inout, e_out, clamp
+    import numpy as _np
+    if kind == 'slide':
+        off = int(W * e_inout(p))
+        c = Image.new('RGBA', (W, H), (0, 0, 0, 255)); c.paste(a, (-off, 0)); c.paste(b, (W - off, 0)); return c
+    if kind == 'zoom':
+        q = e_inout(p)
+        a2 = zoom_img(a, 1 + 0.55 * q); b2 = zoom_img(b, 1.45 - 0.45 * q)
+        return Image.blend(a2, b2, clamp(q * 1.15 - 0.1))
+    if kind == 'wipe':
+        gw, gh = 96, 54
+        xs = _np.linspace(0, 1, gw)[None, :]; ys = _np.linspace(0, 1, gh)[:, None]
+        u = xs * 0.85 + ys * 0.15
+        m = _np.clip((e_inout(p) * 1.18 - u) / 0.18, 0, 1)
+        mask = Image.fromarray((m * 255).astype(_np.uint8), 'L').resize((W, H), Image.BILINEAR)
+        return Image.composite(b, a, mask)
+    if kind == 'flash':
+        white = Image.new('RGBA', (W, H), (255, 255, 255, 255))
+        return Image.blend(a, white, e_out(p * 2) * 0.95) if p < 0.5 else Image.blend(white, b, e_out((p - 0.5) * 2))
+    return Image.blend(a, b, e_inout(p))
+
+
 def render_frame(i):
     from PIL import Image, ImageDraw
-    from lib import W, H, FPS, e_inout, prog, logo_chip, text, text_w, Cv, rgba, WHITE, NAVY, clamp, shadow
-    import scenes
+    from lib import W, H, FPS, e_inout, logo_chip, text, text_w, Cv, rgba, WHITE, clamp
     T = load()
     t = i / FPS
     tl = T['tl']
@@ -348,29 +448,18 @@ def render_frame(i):
     for j, s in enumerate(tl):
         if s['start'] <= t:
             k = j
-    s = tl[k]
-    img = Image.new('RGBA', (W, H), (0, 0, 0, 255))
-    end = s['start'] + s['dur']
-    S = {kk: tuple(v) for kk, v in s['S'].items()}
+    end = tl[k]['start'] + tl[k]['dur']
+    img = scene_frame(k, t, T)
     if k + 1 < len(tl) and t > end - XF:
-        s2 = tl[k + 1]
-        S2 = {kk: tuple(v) for kk, v in s2['S'].items()}
-        scenes.RENDER[s['sid']](img, t - s['start'], S)
-        img2 = Image.new('RGBA', (W, H), (0, 0, 0, 255))
-        scenes.RENDER[s2['sid']](img2, t - s2['start'], S2)
-        p = e_inout(clamp((t - (end - XF)) / XF))
-        img = Image.blend(img, img2, p)
-    else:
-        scenes.RENDER[s['sid']](img, t - s['start'], S)
-    # overlays
+        img2 = scene_frame(k + 1, t, T)
+        img = transition(img, img2, clamp((t - (end - XF)) / XF), T['trans'][k])
+    s = tl[k]
     if s['sid'] not in ('title',):
         logo_chip(img, 0.95)
-    # progress bar
     tot = T['total']
     d = ImageDraw.Draw(img, 'RGBA')
     d.rectangle([0, H - 7, W, H], fill=(255, 255, 255, 30))
     d.rectangle([0, H - 7, int(W * t / tot), H], fill=(25, 195, 125, 255))
-    # captions
     for a, b, txt in T['caps']:
         if a - 0.05 <= t <= b + 0.15:
             fade = clamp((t - (a - 0.05)) / 0.18)
@@ -417,6 +506,9 @@ def do_render():
 
 
 if __name__ == '__main__':
+    import lib
+    lib.SPEED = float(os.environ.get('B2B_GFX_SPEED', '1.7'))
+    lib.BG = float(os.environ.get('B2B_BG_SPEED', '2.2'))
     cmd = sys.argv[1]
     if cmd == 'audio':
         do_audio()

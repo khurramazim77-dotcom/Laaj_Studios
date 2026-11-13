@@ -1,5 +1,6 @@
 """Script + scene renderers for 'Broke to Balance — How to Budget Your Paycheck (50/30/20)'."""
 import math
+import lib as _lib
 from lib import *
 
 TAKE_HOME, GROSS, TAXES = 3000, 3600, 600
@@ -504,7 +505,7 @@ def s_savings(img, t, S):
         text(img, (px0, py0 - 56), 'Saving $600 a month', 32, 'Bold', LIGHT, 'lm', cp)
 
         pc1 = prog(t, a('s3') + 0.4, 1.8)            # contributions to month 12
-        pc2 = prog(t, a('s4') + 0.3, max(2.0, d('s4') * .8))     # extend to 60 + growth
+        pc2 = prog(t, a('s4') + 0.3, max(2.0, d('s4') * .8) * _lib.SPEED)     # extend to 60 + growth
         m_c = 12 * pc1 + 48 * e_inout(pc2)
         pts_c = [(X(m), Y(600 * m)) for m in [i * 0.5 for i in range(int(m_c * 2) + 1)]]
         pts_c.append((X(m_c), Y(600 * m_c)))
@@ -526,7 +527,7 @@ def s_savings(img, t, S):
             al = clamp(c1) * c1o
             pill(img, X(12) + 60, Y(7200) - 70, '$7,200 after 1 year', 32, (120, 170, 255), NAVY, padx=28, h=62, alpha=al)
         # end labels
-        e1 = e_back(prog(t, a('s4') + max(2.0, d('s4') * .8) * 0.85, 0.7))
+        e1 = e_back(prog(t, a('s4') + max(2.0, d('s4') * .8) * 0.85, 0.7 * _lib.SPEED))
         if e1 > 0:
             al = clamp(e1)
             text(img, (X(60) + 30, Y(CONTRIB60) + 8), f'{money(CONTRIB60)}', 40, 'Black', (140, 185, 255), 'lm', al)
@@ -734,30 +735,43 @@ RENDER = {'hook': s_hook, 'title': s_title, 'takehome': s_takehome, 'rule': s_ru
 
 
 # ---- sound-effect events (local scene time, kind) ----------------------------
+# Every moment gets a purpose-built sound; no repeated swoosh.
 def events(sid, S):
     a, d = A(S), D(S)
+    sp = _lib.SPEED
     ev = []
     if sid == 'hook':
-        ev.append((a('h1') - 0.3, 'whoosh'))
+        ev.append((a('h1') + 0.05, 'thud'))
         t0 = a('h2'); span = (a('h3') + d('h3') * .85) - t0
-        ev += [(t0 + span * i / 7, 'pop') for i in range(7)]
+        ev += [(t0 + span * i / 7, 'coin' if i % 2 == 0 else 'coin2') for i in range(7)]
+        ev += [(a('h3') + d('h3') * .9, 'thud'), (a('h4') + .1, 'bubble2')]
     elif sid == 'title':
-        ev += [(a('t1') - 0.2, 'whoosh'), (a('t1') + 0.5, 'ching')]
+        ev += [(a('t1') + 0.45, 'sparkle'), (a('t2') - .1, 'pop')]
     elif sid == 'takehome':
-        ev += [(a('a1') + 0.4, 'ding'), (a('a3'), 'pop'), (a('a4'), 'pop'), (a('a5'), 'ching')]
+        ev += [(a('a1') + 0.4, 'ding'), (a('a2') + .2, 'tick'), (a('a3'), 'bubble'), (a('a4'), 'tick2'), (a('a5'), 'cash')]
     elif sid == 'rule':
-        ev += [(a('r1') + 0.3, 'whoosh'), (a('r2') + .05, 'swell'), (a('r3') + .05, 'swell'), (a('r4') + .05, 'swell')]
+        ev += [(a('r1') + 0.35, 'slide'), (a('r2') + .05, 'bubble'), (a('r3') + .05, 'bubble2'), (a('r4') + .05, 'sparkle')]
+        ev += [(a('r5') + .25 * i + .05, 'coin' if i % 2 == 0 else 'coin2') for i in range(3)]
     elif sid == 'needs':
         n = len(ROWS); span = max(0.5, d('n1') - 1.4)
-        ev += [(a('n1') + 0.9 + span * i / n, 'pop') for i in range(n)] + [(a('n3') + 0.2, 'ching')]
+        ev += [(a('n1') + 0.9 + span * i / n, 'tick' if i % 2 == 0 else 'tick2') for i in range(n)]
+        ev += [(a('n2') + .3 + (1.2 / sp) * i / 11, 'tick2') for i in range(11)]
+        ev += [(a('n3') + 0.2, 'cash'), (a('n3') + 1.2, 'bubble'), (a('n4') + .9, 'pop'), (a('n4') + 1.6, 'pop'), (a('n4') + 2.3, 'pop')]
     elif sid == 'wants':
-        ev += [(a('w1') + 0.7 + (d('w1') - 1.4) * i / 6, 'pop') for i in range(6)] + [(a('w2') - .2, 'ching'), (a('w3') + .4, 'pop'), (a('w3') + 1.3, 'pop')]
+        ev += [(a('w1') + 0.7 + (d('w1') - 1.4) * i / 6, 'bubble' if i % 2 == 0 else 'bubble2') for i in range(6)]
+        ev += [(a('w2') - .1, 'thud'), (a('w3') + .4, 'tick'), (a('w3') + 1.3, 'coin')]
     elif sid == 'savings':
-        ev += [(a(k), 'pop') for k in ('s2a', 's2b', 's2c')] + [(a('s3') + .1, 'whoosh'), (a('s4') + max(2.0, d('s4') * .8) * 0.85, 'ching')]
+        ev += [(a('s1') + .3, 'bubble'), (a('s2a'), 'coin'), (a('s2b'), 'coin2'), (a('s2c'), 'sparkle'), (a('s3') + .1, 'slide'),
+               (a('s3') + 1.8, 'pop'), (a('s4') + max(2.0, d('s4') * .8) * 0.85, 'cash')]
     elif sid == 'tips':
-        ev += [(a('p1') + .5 + i * .35, 'pop') for i in range(3)] + [(a('p2'), 'whoosh'), (a('p3'), 'whoosh'), (a('p4'), 'whoosh')]
+        ev += [(a('p1') + .5 + i * .35 / sp, 'bubble' if i != 1 else 'bubble2') for i in range(3)]
+        ev += [(a('p2'), 'slide'), (a('p2') + 1.2, 'tick'), (a('p2') + 2.6, 'sparkle'),
+               (a('p3'), 'whip'), (a('p3') + .4, 'tick'), (a('p3') + .9, 'tick2'), (a('p3') + 1.4, 'tick'), (a('p3') + 1.6, 'thud'),
+               (a('p4'), 'slide'), (a('p4') + .3, 'bubble'), (a('p4') + d('p4') * .42 + .3, 'bubble2'), (a('p4') + d('p4') * .75, 'ding')]
     elif sid == 'mistakes':
-        ev += [(a('m1') + .3, 'whoosh'), (a('m2'), 'pop'), (a('m3'), 'pop'), (a('m4'), 'pop')]
+        ev += [(a('m1') + .3, 'tick')]
+        for k in ('m2', 'm3', 'm4'):
+            ev += [(a(k), 'thud'), (a(k) + 1.8 / sp, 'ding')]
     elif sid == 'outro':
-        ev += [(a('c2'), 'pop'), (a('c3'), 'pop'), (a('c4'), 'pop'), (a('c5') + .2, 'ching')]
+        ev += [(a('c2'), 'coin'), (a('c3'), 'coin2'), (a('c4'), 'sparkle'), (a('c5') + .2, 'cash'), (a('c5') + 1.8, 'tick'), (a('c5') + 2.6, 'bubble')]
     return [(max(0, x), k) for x, k in ev]

@@ -5,6 +5,8 @@ from PIL import Image, ImageDraw, ImageFont, ImageFilter, ImageChops
 
 W, H = 1920, 1080
 FPS = 30
+SPEED = 1.0   # animation speed multiplier (>1 = snappier); set by build.py
+BG = 1.0      # background motion multiplier
 FD = '/usr/share/fonts/opentype/inter/'
 
 # ---- brand palette -------------------------------------------------------
@@ -39,6 +41,7 @@ def clamp(x, a=0.0, b=1.0):
 
 
 def prog(t, start, dur):
+    dur = dur / SPEED
     return clamp((t - start) / dur) if dur > 0 else (1.0 if t >= start else 0.0)
 
 
@@ -180,6 +183,7 @@ _bgc = {}
 
 def bg_soft(img, t, c1=NAVY, c2=NAVY2, accent=GREEN, k=0):
     """Slowly drifting gradient with soft glow blobs (procedural motion background)."""
+    t = t * BG
     gw, gh = 96, 54
     xs = np.linspace(0, 1, gw)[None, :]
     ys = np.linspace(0, 1, gh)[:, None]
@@ -221,6 +225,7 @@ def _skyline(seed, base_y, hmin, hmax, col, wins, span):
 
 def bg_city(img, t):
     """Parallax dusk skyline (stands in for stock b-roll)."""
+    t = t * BG
     if 'city' not in _bgc:
         sky = np.zeros((H, 1, 3), np.float32)
         top, mid, hor = np.array((10, 20, 52)), np.array((72, 52, 120)), np.array((255, 150, 96))
@@ -276,6 +281,7 @@ def _bill(w=170, h=84):
 
 
 def money_rain(img, t, n=18, seed=7, alpha=0.9, up=False):
+    t = t * BG
     if 'coin' not in _sprites:
         _sprites['coin'] = _coin(); _sprites['bill'] = _bill()
         _sprites['coin_b'] = _sprites['coin'].filter(ImageFilter.GaussianBlur(3))
