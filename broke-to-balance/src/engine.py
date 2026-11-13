@@ -691,7 +691,7 @@ def E(kind, at, **kw):
 def make_render(sc, style):
     def render(img, t, S):
         global TH
-        TH = THEMES[style.get('theme', 'night')]
+        TH = THEMES[sc.get('theme', style.get('theme', 'night'))]
         background(img, t, sc.get('bg', style.get('bg', {})))
         R = lambda ref: parse_ref(ref, S)
         h = sc.get('header')

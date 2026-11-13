@@ -94,13 +94,13 @@ SPEC = [
         ('wh1', "Where should you keep this money?", None),
         ('wh2', "Somewhere safe, separate, and easy to reach, but not too easy.", None),
         ('wh3', "A high-yield savings account at an insured bank or credit union is a popular choice. It's separate from your checking, so you won't spend it by accident, and it usually pays more interest than a standard account.", None),
-        ('wh4', "Check that deposits are insured where you live. In the U.S., the FDIC and NCUA typically cover up to two hundred fifty thousand dollars per depositor, per institution, per ownership category.", None),
+        ('wh4', "Check that deposits are insured where you live. In the United States, the FDIC and NCUA typically cover up to two hundred fifty thousand dollars per depositor, per institution, per ownership category.", None),
         ('wh5', "Rates change, so compare current offers, and skip accounts with monthly fees.", None),
         ('wh6', "What you shouldn't do is keep your emergency fund in the stock market, or in something you can't reach within a few days. Emergencies don't wait for markets to recover.", None)],
         els=[E('checklist', 'wh2', region=(140, 310, 1060, 930), size=34, items=[
                  dict(text='Safe & insured', at='wh2+0.2'), dict(text='Easy to reach', at='wh2+2.2'), dict(text='Separate from checking', at='wh3+5.0'),
                  dict(text='Pays more interest', at='wh3+8.0'), dict(text='No monthly fees', at='wh5+2.2')]),
-             E('callout', 'wh4+0.3', region=(1120, 300, 1780, 640), lines=['Deposit insurance', 'U.S.: up to $250,000', 'per depositor, per institution'], size=36, color=BLUE, fg=WHITE),
+             E('callout', 'wh4+0.3', region=(1120, 300, 1780, 640), lines=['Deposit insurance', 'United States: up to $250,000', 'per depositor, per institution'], size=36, color=BLUE, fg=WHITE),
              E('checklist', 'wh6+0.5', region=(1120, 680, 1780, 930), size=30, items=[
                  dict(text='Stock market', ok=False, at='wh6+2.4'), dict(text='Locked-up accounts', ok=False, at='wh6+5.0')])]),
     dict(id='build', header=dict(tag='BUILD IT', title='How to build it', color=GREEN), segs=[

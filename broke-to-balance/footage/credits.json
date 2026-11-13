@@ -454,5 +454,125 @@
   "query": "credit card terminal payment",
   "duration": 26,
   "size": "2560x1440"
+ },
+ "planner_0": {
+  "pixabay_id": 10822,
+  "page": "https://pixabay.com/videos/id-10822/",
+  "user": "Coverr-Free-Footage",
+  "query": "writing in planner notebook",
+  "duration": 12,
+  "size": "1280x720"
+ },
+ "planner_1": {
+  "pixabay_id": 4952,
+  "page": "https://pixabay.com/videos/id-4952/",
+  "user": "klimkin",
+  "query": "writing in planner notebook",
+  "duration": 16,
+  "size": "1280x720"
+ },
+ "planner_2": {
+  "pixabay_id": 3145,
+  "page": "https://pixabay.com/videos/id-3145/",
+  "user": "Life-Of-Vids",
+  "query": "writing in planner notebook",
+  "duration": 43,
+  "size": "1280x720"
+ },
+ "calendar_0": {
+  "pixabay_id": 2340,
+  "page": "https://pixabay.com/videos/id-2340/",
+  "user": "Life-Of-Vids",
+  "query": "calendar planning",
+  "duration": 44,
+  "size": "1280x720"
+ },
+ "calendar_1": {
+  "pixabay_id": 39890,
+  "page": "https://pixabay.com/videos/id-39890/",
+  "user": "AlexKopeykin",
+  "query": "calendar planning",
+  "duration": 12,
+  "size": "1280x720"
+ },
+ "calendar_2": {
+  "pixabay_id": 22130,
+  "page": "https://pixabay.com/videos/id-22130/",
+  "user": "RaniRamli",
+  "query": "calendar planning",
+  "duration": 18,
+  "size": "1280x720"
+ },
+ "freelance_0": {
+  "pixabay_id": 10822,
+  "page": "https://pixabay.com/videos/id-10822/",
+  "user": "Coverr-Free-Footage",
+  "query": "freelancer working laptop cafe",
+  "duration": 12,
+  "size": "1280x720"
+ },
+ "freelance_1": {
+  "pixabay_id": 92480,
+  "page": "https://pixabay.com/videos/id-92480/",
+  "user": "jamescheney82",
+  "query": "freelancer working laptop cafe",
+  "duration": 13,
+  "size": "1280x720"
+ },
+ "freelance_2": {
+  "pixabay_id": 156,
+  "page": "https://pixabay.com/videos/id-156/",
+  "user": "Coverr-Free-Footage",
+  "query": "freelancer working laptop cafe",
+  "duration": 12,
+  "size": "1280x720"
+ },
+ "coaster_0": {
+  "pixabay_id": 41,
+  "page": "https://pixabay.com/videos/id-41/",
+  "user": "DistillVideos",
+  "query": "roller coaster",
+  "duration": 32,
+  "size": "1280x720"
+ },
+ "coaster_1": {
+  "pixabay_id": 40,
+  "page": "https://pixabay.com/videos/id-40/",
+  "user": "DistillVideos",
+  "query": "roller coaster",
+  "duration": 30,
+  "size": "1280x720"
+ },
+ "coaster_2": {
+  "pixabay_id": 20453,
+  "page": "https://pixabay.com/videos/id-20453/",
+  "user": "ChristianBodhi",
+  "query": "roller coaster",
+  "duration": 15,
+  "size": "1280x720"
+ },
+ "desk_0": {
+  "pixabay_id": 6389,
+  "page": "https://pixabay.com/videos/id-6389/",
+  "user": "Coverr-Free-Footage",
+  "query": "desk workspace",
+  "duration": 13,
+  "size": "1280x720"
+ },
+ "desk_1": {
+  "pixabay_id": 83152,
+  "page": "https://pixabay.com/videos/id-83152/",
+  "user": "TPMotion",
+  "query": "desk workspace",
+  "duration": 20,
+  "size": "1280x720"
+ },
+ "desk_2": {
+  "pixabay_id": 382929,
+  "page": "https://pixabay.com/videos/id-382929/",
+  "user": "zephylwer0",
+  "query": "desk workspace",
+  "duration": 14,
+  "size": "2560x1440"
  }
 }

@@ -24,7 +24,7 @@ SPEC = [
              E('callout', 'h3+0.5', region=(140, 330, 1780, 800), lines=['5 levels.', '5 factors.'], size=110, color=CYAN)]),
     dict(id='title', bg=dict(kind='rain', accent=VIOLET, k=7), segs=[
         ('t1', "Welcome back to Broke to Balance.", None),
-        ('t2', "Quick note: this is educational, not personal financial advice. I'll use the common U.S. FICO scale as the example, and other scoring models and countries differ.", None)],
+        ('t2', "Quick note: this is educational, not personal financial advice. I'll use the common FICO scale from the United States as the example, and other scoring models and countries differ.", None)],
         els=[E('brand', 't1', sub_at='t1+1.0', pill='Credit Score Explained: The 5 Factors That Matter', line='EPISODE 5  •  BUDGETING BASICS')]),
     dict(id='score', header=lvl(0, 'What is a credit score?'), segs=[
         ('s1', "First, what is a credit score?", None),
@@ -119,16 +119,16 @@ SPEC = [
              E('callout', 'i5+1.6', region=(140, 720, 1780, 930), lines=['Months, not days'], size=96, color=GOLD)]),
     dict(id='protect', header=dict(tag='SHIELD UP', title='Protect your credit', color=CYAN, segs=5, on=5), segs=[
         ('d1', "One more power-up: protect your credit from fraud.", None),
-        ('d2', "In the U.S., you can freeze your credit with each bureau for free, which stops new accounts from being opened in your name.", None),
+        ('d2', "In the United States, you can freeze your credit with each bureau for free, which stops new accounts from being opened in your name.", None),
         ('d3', "You can also set up fraud alerts, and review your statements and reports regularly.", None),
         ('d4', "If you spot something you didn't do, report it right away.", None)],
         els=[E('cards', 'd2', region=(140, 340, 1780, 760), items=[
-                 dict(icon='shield', title='Credit freeze', color=CYAN, at='d2+1.0', body=['Free in the U.S. Blocks new accounts in your name.']), dict(icon='bolt', title='Fraud alerts', color=GOLD, at='d3+0.4', body=['Get notified of suspicious activity.']),
+                 dict(icon='shield', title='Credit freeze', color=CYAN, at='d2+1.0', body=['Free in the United States. Blocks new accounts in your name.']), dict(icon='bolt', title='Fraud alerts', color=GOLD, at='d3+0.4', body=['Get notified of suspicious activity.']),
                  dict(icon='check', title='Regular reviews', color=GREEN, at='d3+3.2', body=['Check statements and reports often.'])]),
              E('callout', 'd4+0.4', region=(140, 800, 1780, 950), lines=['See something odd? Report it right away'], size=50, color=CORAL, fg=WHITE)]),
     dict(id='check', header=dict(tag='CHECKPOINT', title='See where you stand', color=CYAN, segs=5, on=5), segs=[
         ('k1', "Now, how do you see where you stand?", None),
-        ('k2', "In the U.S., you can get free credit reports from the three major bureaus at annual credit report dot com.", "In the U.S., you can get free credit reports from the three major bureaus at AnnualCreditReport.com."),
+        ('k2', "In the United States, you can get free credit reports from the three major bureaus at annual credit report dot com.", "In the United States, you can get free credit reports from the three major bureaus at AnnualCreditReport.com."),
         ('k3', "Read them for mistakes, like accounts that aren't yours, and dispute anything wrong.", None),
         ('k4', "Many banks and card issuers also show a free score in their app.", None)],
         els=[E('clip', 'k1', region=(140, 340, 840, 760), clip='banking_2', color=CYAN, label='CHECKPOINT'),

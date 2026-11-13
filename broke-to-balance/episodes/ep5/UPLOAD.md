@@ -14,7 +14,7 @@ How is your credit score really calculated? Level up your credit knowledge with 
 ▶ Start here: How to Budget Your Paycheck (50/30/20)
 ▶ Previous: Debt Snowball vs Debt Avalanche
 
-⚠️ Educational content only, not financial advice. Uses the common U.S. FICO scale as the example; scoring models, factor weights, rules and free-report options differ by country and over time. Loan rates and amounts are illustrative. Voice-over is AI-generated. Stock footage: Pixabay.
+⚠️ Educational content only, not financial advice. Uses the common FICO scale from the United States as the example; scoring models, factor weights, rules and free-report options differ by country and over time. Loan rates and amounts are illustrative. Voice-over is AI-generated. Stock footage: Pixabay.
 
 #creditscore #personalfinance #buildcredit
 ```
